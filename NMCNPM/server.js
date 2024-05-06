@@ -15,7 +15,8 @@ const port = 3000;
 
 
 // load asset files
-app.use('/css', express.static(path.join(__dirname, "/assets/css")));
+// app.use('/css', express.static(path.join(__dirname, "/assets/css")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use('/js', express.static(path.join(__dirname, "/assets/js")));
 // app.use('/css', express.static(path.join(__dirname, "/assets/css")));
 
