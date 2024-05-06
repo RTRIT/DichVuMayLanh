@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh sách dịch vụ</title>
+  <style>
+    .service-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .service-card img {
+      max-width: 100px;
+      max-height: 100px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Danh sách dịch vụ</h1>
+  <div id="service-list"></div>
+
+  <script>
+    function getServices() {
+      try {
+        const api = 'https://mymusicpupu.000webhostapp.com/server2/getListDV.php';
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', api);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            const services = JSON.parse(xhr.responseText);
+            const serviceList = document.getElementById('service-list');
+
+            services.forEach(service => {
+              const serviceCard = document.createElement('div');
+              serviceCard.classList.add('service-card');
+
+              const serviceImage = document.createElement('img');
+              serviceImage.src = service.Hinhanh;
+              serviceImage.alt = service.TenDV;
+
+              const serviceInfo = document.createElement('div');
+              serviceInfo.innerHTML = `
+                <h3>${service.TenDV}</h3>
+                <p>Mã dịch vụ: ${service.MaDV}</p>
+                <p>Giá: ${service.Gia}</p>
+                <p>${service.Mota}</p>
+              `;
+
+              serviceCard.appendChild(serviceImage);
+              serviceCard.appendChild(serviceInfo);
+              serviceList.appendChild(serviceCard);
+            });
+          }
+        };
+
+        xhr.send();
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+
+    getServices();
+  </script>
+</body>
+</html>

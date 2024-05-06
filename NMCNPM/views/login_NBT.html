@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <form onsubmit="handleSubmit(event)">
+      <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </body>
+  <script>
+    const loginURL = "https://mymusicpupu.000webhostapp.com/server2/login.php";
+    const xhr = new XMLHttpRequest();
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const username = e.target.querySelector('input[name="username"]').value;
+      const password = e.target.querySelector('input[name="password"]').value;
+      console.log(username, password);
+      xhr.open("POST", loginURL);
+      xhr.send(JSON.stringify({ username, password }));
+    }
+  </script>
+</html>
