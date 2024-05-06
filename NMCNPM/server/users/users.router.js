@@ -5,7 +5,7 @@ const path = require('path');
 
 /** @GET_METHODS__________________________ */
 route.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, '../..', 'views', 'login_NBT.html'));
+    res.sendFile(path.join(__dirname, '../..', 'views', 'login.html'));
 });
 
 route.get('/serviceList', (req, res) => {
