@@ -5,19 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Máy lạnh</title>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style2.css">
 </head>
 
 <body>
     <div id="header">
         <ul id="nav">
-            <li><a href="#slider">Trang chủ</a></li>
-            <li><a href="/Form">Đặt dịch vụ</a></li>
-            <li><a href="/Admin">Admin</a></li>
-            <!-- <li><a href="#band">Band</a></li>
-            <li><a href="#tour">Tour</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Trang chủ</a></li>
             <li>
+                <a href="/Form">Đặt dịch vụ</a>
+                <ul class="subnav">
+                    <li><a href="#">Bơm gas máy lạnh</a></li>
+                    <li><a href="#">Di dời, tháo lắp máy lạnh</a></li>
+                    <li><a href="#">Sửa board máy lạnh Inventer</a></li>
+                    <li><a href="#">Máy lạnh bị đông đá</a></li>
+                    <li><a href="#">Máy lạnh bị chảy nước</a></li>
+                    <li><a href="#">Sửa máy lạnh bị xì gas</a></li>
+                    <li><a href="#">Ống đồng máy lạnh bị đông tuyết</a></li>
+                </ul>
+            
+            </li>
+            <li><a href="/Admin">Admin</a></li>
+            <!-- <li>
                 <a href="">
                     More
                     <i class="fa-solid fa-caret-down"></i>
@@ -31,7 +41,7 @@
             </li> -->
         </ul>
         <div id="search_box">
-            <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+            <i class="lni lni-search"></i>
         </div>
     </div>
      <!-- Slider -->
@@ -67,8 +77,9 @@
                 <div class="clear"></div>
             </div> -->
         </div>
-        <!-- Tour section -->
-        <div id="tour" class="tour-section">
+        
+        <!-- content2 section -->
+        <div id="content2" class="content2-section">
             <div class="content-section">
                 <h1 class="section-heaing">CÁC DỊCH VỤ ĐIỆN LẠNH TIÊU BIỂU</h1>
                 <!-- <p class="section-subheading">Remember to book your tickets!</p> -->
@@ -78,7 +89,8 @@
                     <li class="month">November <span class="real-ticket-available">3</span></li>
                 </ul> -->
                 <div class="row performance">
-                    <div class="col col-third">
+                    <a href="./serviceDetail">
+                        <div class="col col-third">
                         <img src="/images/slider/service1.webp" alt="">
                         <div class="performance-information">
                             <p class="place">SỬA MÁY LẠNH TẬN NƠI</p>
@@ -87,7 +99,10 @@
                             <!-- <button class="buy-ticket js-buy-ticket ">Buy ticket</button> -->
                         </div>
                     </div>
-                    <div class="col col-third">
+                    </a>
+                    
+                    <a href="./serviceDetail">
+                        <div class="col col-third">
                         <img src="/images/slider/service2.webp">
                         <div class="performance-information">
                             <p class="place">VỆ SINH MÁY LẠNH</p>
@@ -96,7 +111,10 @@
                             <!-- <button class="buy-ticket js-buy-ticket">Buy ticket</button> -->
                         </div>
                     </div>
-                    <div class="col col-third">
+                    </a>
+                    
+                    <a href="./serviceDetail">
+                        <div class="col col-third">
                         <img src="/images/slider/service3.webp">
                         <div class="performance-information">
                             <p class="place">SỬA TỦ LẠNH TẬN NHÀ</p>
@@ -105,9 +123,12 @@
                             <!-- <button class="buy-ticket js-buy-ticket">Buy ticket</button> -->
                         </div>
                     </div>
+                    </a>
+                    
                 </div>
             </div>
         </div>
+
         <!-- Contact section -->
         <div id="news" class="news-section">
             <div class="content-section">
@@ -141,6 +162,71 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Footer -->
+    <link rel="stylesheet" href="./partials/footer.html">
+    <div class="footer">
+        <div class="content-section row">
+            <div class="col col-half text-center">
+                <p class="address">
+                    <span>
+                        <strong>TPHCM</strong>
+                    </span>
+                    <p class="text">Số 02 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM</p>
+                </p>
+                <p class="address">
+                    <span>
+                        <strong>TPHCM</strong>
+                    </span>
+                    <p class="text">Số 02 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM</p>
+                </p>
+                <p class="address">
+                    <span>
+                        <strong>TPHCM</strong>
+                    </span>
+                    <p class="text">Số 02 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM</p>
+                </p>
+                <p class="address">
+                    <span>
+                        <strong>TPHCM</strong>
+                    </span>
+                    <p class="text">Số 02 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM</p>
+                </p>
+            </div>
+
+            <div class="col col-half text-center">
+                <p class="address">
+                    <span>
+                        <strong>TPHCM</strong>
+                    </span>
+                    <p class="text">Số 02 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM</p>
+                </p>
+                <p class="address">
+                    <span>
+                        <strong>TPHCM</strong>
+                    </span>
+                    <p class="text">Số 02 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM</p>
+                </p>
+                <p class="address">
+                    <span>
+                        <strong>TPHCM</strong>
+                    </span>
+                    <p class="text">Số 02 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM</p>
+                </p>
+                <p class="address">
+                    <span>
+                        <strong>TPHCM</strong>
+                    </span>
+                    <p class="text">Số 02 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM</p>
+                </p>
+            </div>
+            <i class="lni icon lni-instagram"></i>
+            <i class="lni icon lni-twitter"></i>
+            <i class="lni icon lni-facebook"></i>
+            
+            
+        </div>
     </div>
     
 

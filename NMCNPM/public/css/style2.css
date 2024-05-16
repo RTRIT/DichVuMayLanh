@@ -79,6 +79,7 @@ html{
 
 #header #search-icon{
     color: #fff;
+
     
 }
 
@@ -86,6 +87,8 @@ html{
 #nav, .subnav{
     list-style-type: none;
     display: inline-block;
+    
+
 }
 
 #nav li{
@@ -94,11 +97,6 @@ html{
 
 }
 
-
-/* Khi hover đúng vào thằng li thì thằng con subnav sẽ được add css */
-#nav li:hover .subnav{
-    display: block;
-}
 
 #nav > li > a{
     color: #fff;
@@ -115,6 +113,15 @@ html{
 
 }
 
+/* CSS CHO SUBNAV */
+
+/* Khi hover đúng vào thằng li thì thằng con subnav sẽ được add css */
+#nav li:hover .subnav{
+    display: block;
+}
+
+/* Những thẻ li con trực tiếp nav và 
+   những thẻ li  con của subnav được hover sẽ có thuộc tính như sau */
 #nav > li:hover > a,
 #nav .subnav > li:hover{
     color: black;
@@ -123,21 +130,29 @@ html{
 
 #nav .subnav{
     display: none;
+    /* Mặc định subnav display là none */
+
      /* Hai thằng dưới được thêm vào để luôn đảm bảo khoảng cách (xem lại để hiểu rõ hơn) */
     top: 100%;
     left: 0px;
-    /*     */
     position: absolute;
     background-color: white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    min-width: 160px;
-
+    min-width: 800px;
+    border-radius: 3px;
+    margin-top: 4px;
 
 }
 
 
 #nav .subnav li{
-    width: 100%;
+    /* width: 100%; */
+    width: calc(100% / 2);
+    float: left;
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 15px;
+    
 
 }
 
@@ -146,6 +161,8 @@ html{
     padding:0 12px;
     
 }
+
+/* KẾT THÚC CSS CHO SUBNAV */
 
 #slider{
     margin-top: 46px;
@@ -226,22 +243,22 @@ html{
 }
 
 
-.tour-section{
+.content2-section{
     background-color: #b0b0b0;
     color: #fff;
 }
 
-.tour-section .content-section{
+.content2-section .content-section{
     width: 800px;
 }
 
-.tour-section .ticket-available{
+.content2-section .ticket-available{
     
 }
 
 
 
-.tour-section ul li{
+.content2-section ul li{
     padding: 12px 16px;
     color: rgb(103, 102, 102);
     list-style-type: none;
@@ -251,7 +268,7 @@ html{
     line-height: 22px;
 }
 
-.tour-section ul .soldout{
+.content2-section ul .soldout{
    margin-left: 16px;
    padding: 6px 8px;
    color: white;
@@ -259,7 +276,7 @@ html{
    
 }
 
-.tour-section  .real-ticket-available{
+.content2-section  .real-ticket-available{
     border-radius: 50%;
     border: 1px;
     padding-left: 7px;
@@ -271,33 +288,33 @@ html{
     float: right;
  }
 
- .tour-section .performance{
+ .content2-section .performance{
     margin-top: 32px;
     margin-bottom: 40px;
     /* background-color: #fff;  */
  }
 
 
- .tour-section img{
+ .content2-section img{
     width: 100%;
     display: block;
     /* text-align: center; */
  }
 
- .tour-section img:hover{
+ .content2-section img:hover{
     width: 100%;
     opacity: 0.5;
     /* text-align: center; */
  }
 
- .tour-section .performance-information{
+ .content2-section .performance-information{
     background-color: #fff;
     color: black;
     /* text-align: left; */
     padding: 0 16px;
 }
 
- .tour-section .performance-information p{
+ .content2-section .performance-information p{
     padding: 15px 0;
 
  }
@@ -308,7 +325,7 @@ html{
 
 
 
- .tour-section .performance-information .buy-ticket{
+ .content2-section .performance-information .buy-ticket{
     color: #fff;
     background-color: #000;
     padding: 16px 20px;
@@ -317,7 +334,7 @@ html{
 
 
 
- .tour-section .performance-information .buy-ticket:hover{
+ .content2-section .performance-information .buy-ticket:hover{
     color:black;
     background-color:  #ccc;
     border: 1px solid #ccc;
@@ -337,6 +354,49 @@ html{
     list-style-type: none;
     padding: 5px 0;
 }
+
+/* Footer section */
+
+.footer{
+    background-color: #3a3a3a;
+}
+
+.footer .content-section{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 16px;
+
+}
+
+.footer .address{
+    margin-bottom: 25px;
+}
+
+.footer .text {
+    color    : white;
+}
+
+.footer  span{
+    display: inherit;
+    color: orangered;
+    
+}
+
+.footer .icon{
+    font-size: 30px;
+    padding: 20px 15px;
+    margin-top: 30px;
+    color: white;
+    display: flex;
+    float: right;
+    
+    /* justify-content: flex ; */
+
+
+}
+
+
 
 
 /* Contact-section */

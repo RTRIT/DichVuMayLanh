@@ -30,6 +30,9 @@ route.get('/Form', (req, res) => {
 route.get('/Product', (req, res) => {
     res.sendFile(path.join(__dirname, '../..', 'views', 'Product.html'));
 });
+route.get('/serviceDetail', (req, res) => {
+    res.sendFile(path.join(__dirname, '../..', 'views', 'serviceDetail.html'));
+})
 
 
 
