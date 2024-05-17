@@ -1,0 +1,95 @@
+
+.clear{
+    clear: both;
+}
+
+body{
+    background-color: rgb(229, 229, 229);
+}
+
+.container{
+
+}
+
+
+
+.bill-management{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    margin-top: 92px;
+    padding: 20px 20px;
+} 
+
+.bill-management .tab{
+
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: sticky;
+    top: 0px;
+    margin-left: 0;
+    z-index: 10;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.col-3 {
+
+    text-align: center;
+    
+}
+
+
+
+.bill-management .product{
+    padding: 10px;
+    
+    justify-content: space-between;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.order-body{
+    display: inline-block;
+    display: flex;
+    padding: 16px 0;
+    border-bottom: 1px solid rgb(235, 235, 240);
+}
+
+.order-body img{
+    width: 80px;
+    height: 80px;
+}
+
+.order-body .detail{
+    display: flex;
+    max-width: 400px;
+    
+}
+
+
+
+.order-body .detail .product-info{
+    margin: 0 12px;
+}
+
+.order-body .detail .store{
+    margin: 4px 0 0;
+}
+
+.order-body .store .lni{
+    margin: 0px 6px 0px 0px;
+}
+
+.order-body .price{
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.order-body .quantity #tel{
+    width: 32px;
+    text-align: center;
+}

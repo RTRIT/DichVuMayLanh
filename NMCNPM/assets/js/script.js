@@ -5,3 +5,8 @@ tog1.addEventListener("click",function(){
     document.querySelector("#sidebar").classList.toggle("expand");
 })
 
+
+const incrs = document.querySelector("#increase");
+incrs.addEventListener("click", function(){
+    alert("Increasing");
+})
