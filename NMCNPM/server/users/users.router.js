@@ -34,6 +34,10 @@ route.get('/serviceDetail', (req, res) => {
     res.sendFile(path.join(__dirname, '../..', 'views', 'serviceDetail.html'));
 })
 
+route.get('/HoaDon', (req, res) => {
+    res.sendFile(path.join(__dirname, '../..', 'views', 'HoaDon.html'));
+})
+
 
 
 module.exports = route;

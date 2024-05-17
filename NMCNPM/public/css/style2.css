@@ -63,32 +63,48 @@ html{
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 20;
 }
 
-#header #search_box {
+/* Float right */
+#header #search_box,
+#profile_img 
+{
     float: right;
     padding: 14px 24px; 
     /*tren hai_ben  */
     cursor:pointer;
 }
-#header #search_box:hover{
+
+/* Hover for icon */
+#header #search_box:hover,
+#profile_img:hover
+{
     color: #fff;
     background-color: orangered;
 }
 
+
 #header #search-icon{
     color: #fff;
-
     
 }
 
 
-#nav, .subnav{
+#nav, .subnav
+{
     list-style-type: none;
     display: inline-block;
-    
 
+}
+
+
+
+
+
+#profile_img .subnav2{
+    list-style-type: none;
+    margin-top: 5px;
 }
 
 #nav li{
@@ -119,6 +135,9 @@ html{
 #nav li:hover .subnav{
     display: block;
 }
+#profile_img:hover .subnav2{
+    display: block;
+}
 
 /* Những thẻ li con trực tiếp nav và 
    những thẻ li  con của subnav được hover sẽ có thuộc tính như sau */
@@ -127,11 +146,20 @@ html{
     color: black;
     background-color: #ccc;
 }
+#nav > li:hover > a,
+#nav .subnav > li:hover,
+#profile_img:hover > a,
+#profile_img .subnav2 > li:hover
+{
+    color: black;
+    background-color: #ccc;
+}
 
+
+/* Mặc định subnav display là none */
 #nav .subnav{
     display: none;
-    /* Mặc định subnav display là none */
-
+    
      /* Hai thằng dưới được thêm vào để luôn đảm bảo khoảng cách (xem lại để hiểu rõ hơn) */
     top: 100%;
     left: 0px;
@@ -143,8 +171,19 @@ html{
     margin-top: 4px;
 
 }
+#profile_img .subnav2{
+    display: none;
+    top: 100%;
+    right: 0px;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    min-width: 80px;
+    border-radius: 3px;
+    margin-top: 4px;
+}
 
-
+/* Css cho từng thuộc tính trong subnav */
 #nav .subnav li{
     /* width: 100%; */
     width: calc(100% / 2);
@@ -152,14 +191,18 @@ html{
     display: inline-block;
     padding: 10px 30px;
     font-size: 15px;
-    
-
 }
+#profile_img .subnav2 li{
+    display: block;
+    padding: 10px 30px;
+    font-size: 15px;
+}
+
+
 
 #nav .subnav a{
     color: black;
     padding:0 12px;
-    
 }
 
 /* KẾT THÚC CSS CHO SUBNAV */
