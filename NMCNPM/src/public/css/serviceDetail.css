@@ -1,0 +1,28 @@
+
+.clear{
+    clear: both;
+}
+
+.container{
+    margin-top: 92px;
+}
+
+.container .service-img-list img{
+    width:10%;
+    height:10%;
+}
+
+.container .form-group{
+    display: flex;
+    float: left;
+    margin-top: 20px;
+
+}
+
+.container .form-group label{
+    margin-right: 10px;
+}
+
+.container .form-group input{
+    display: inline-block;
+}

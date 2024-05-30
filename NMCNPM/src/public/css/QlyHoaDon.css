@@ -1,0 +1,171 @@
+
+.clear{
+    clear: both;
+}
+
+body{
+    background-color: rgb(229, 229, 229);
+}
+
+.container{
+
+}
+
+
+
+.bill-management{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    margin-top: 92px;
+    padding: 20px 20px;
+}
+
+.bill-management .tab{
+    max-width: 1000px;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: sticky;
+    top: 0px;
+    margin-left: 0;
+    z-index: 10;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.bill-management .tab .col-3{
+    /* width: calc(1000/4); */
+    text-align: center;
+    
+}
+
+.bill-management .input{
+    border: 1px solid rgb(174 174 179);
+    margin-bottom: 5px;
+    background-color: white;
+    max-width: 1000px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.bill-management #search{
+    min-width: 800px;
+    border: 0;
+    border-right: 1px solid;
+
+}
+
+.bill-management .search-right{
+    display: inline-block;
+    color: rgb(11, 116, 229);
+    padding: 0px 6px 0px 16px;
+    cursor: pointer;
+
+}
+
+.bill-management .product{
+    padding: 16px 16px;
+    max-width: 1000px;
+    justify-content: space-between;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.order-header{
+    display: flex;
+    padding: 0 0 12px;
+    border-bottom: 1px solid rgb(235, 235, 240);
+}
+
+.order-header i{
+    padding: 5px 10px;
+    align-items: center;
+    color: rgb(128, 128, 137);
+}
+
+
+.order-header span::before {
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0px 6px 0px 0px;
+}
+
+.order-body{
+    display: flex;
+    padding: 16px 0;
+    border-bottom: 1px solid rgb(235, 235, 240);
+}
+
+.order-body img{
+    width: 80px;
+    height: 80px;
+}
+
+.order-body .detail{
+    display: flex;
+}
+
+
+
+.order-body .detail .product-info{
+    margin: 0 12px;
+}
+
+.order-body .detail .store{
+    margin: 4px 0 0;
+}
+
+.order-body .store .lni{
+    margin: 0px 6px 0px 0px;
+}
+
+.order-body .price{
+    min-width: 350px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.order-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 12px;
+    width: 100%;
+ 
+
+}
+
+.order-footer .total-money{
+    display: flex;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.order-footer .button-group div{
+    padding: 12px 8px;
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid rgb(11, 116, 229);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: rgb(11, 116, 229);
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 8px;
+    float: right;
+}
+.order-footer .button-group div:hover{
+    
+}
+
