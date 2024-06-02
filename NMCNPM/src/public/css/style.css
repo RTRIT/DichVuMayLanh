@@ -11,14 +11,14 @@ html{
 
 
 /* Common */
-.col{
+.coll{
     float: left;
     padding-left: 8px;
     /* padding-right: 8px; */
 }
 
 
-.col-third{
+.coll-third{
     width: calc(100%/3);
 }
 

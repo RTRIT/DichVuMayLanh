@@ -13,12 +13,12 @@ html{
     clear: both;
 }
 
-.row{
+.roww{
     margin-left: -8px;
     margin-right: -8px;
 }
 
-.row::after{
+.roww::after{
     content: ""; 
     /* Phải có thằng content trên kể cả khi nó là chuỗi rỗng */
     display: block;
@@ -33,21 +33,21 @@ html{
     margin-top: 16px !important;
 }
 
-.col{
+.coll{
     float: left;
     padding-left: 8px;
     padding-right: 8px;
 }
 
-.col-half{
+.coll-half{
     width: 50%;
 }
 
-.col-third{
+.coll-third{
     width: calc(100%/3);
 }
 
-.col-full{
+.coll-full{
     width: 100%;
 }
 
@@ -402,13 +402,14 @@ html{
 
 .footer{
     background-color: #3a3a3a;
+    margin-top: 50px;
 }
 
 .footer .content-section{
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    padding: 64px 16px;
+    padding: 32px 16px;
 
 }
 

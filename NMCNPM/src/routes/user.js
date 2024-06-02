@@ -7,6 +7,7 @@ const path = require('path'); // Import the path module
 
 //Login page
 router.get('/login', login.show);
+router.post('/login', login.login);
 
 //Register page
 router.get('/register', register.show);

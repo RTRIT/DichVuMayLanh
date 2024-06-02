@@ -402,13 +402,14 @@ html{
 
 .footer{
     background-color: #3a3a3a;
+    margin-top: 50px;
 }
 
 .footer .content-section{
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    padding: 64px 16px;
+    padding: 32px 16px;
 
 }
 
