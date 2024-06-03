@@ -39,7 +39,7 @@ class loginController{
           const data = await response.json();
           // Assuming the response contains an object with user_id and user_name properties
           res.cookie('user_id', data.Id);
-          res.cookie('user_name', data.Tenkh);
+          res.cookie('user_name', data.Tenkh); 
           res.redirect('/')
         } else {
           // Handle the error if fetch is not successful
@@ -56,3 +56,6 @@ class loginController{
 }
 
 module.exports = new loginController;
+
+
+
