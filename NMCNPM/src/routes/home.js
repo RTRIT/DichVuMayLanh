@@ -9,7 +9,7 @@ const path = require('path'); // Import the path module
 router.get('/form', form.show);
 router.post('/form', form.submitForm);
 router.get('/HoaDon', home.billList);
-
+router.get('/cart', home.billList);
 router.get('/:serviceDetail', home.serviceDetail);
 router.get('/', home.show);
 

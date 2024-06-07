@@ -18,5 +18,8 @@ module.exports = {
     regName: function(str){
         return str.replace(/ /g, "-");
         
+    },
+    sumUp: function(str){
+        return str.split(" ", 12).join(" ")+"...";
     }
   }

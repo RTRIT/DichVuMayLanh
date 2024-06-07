@@ -30,14 +30,19 @@
             <div class="content-section">
                 <h1 class="section-heaing">CÁC DỊCH VỤ ĐIỆN LẠNH TIÊU BIỂU</h1>
                 <div class="roww performance">
-                    {{#each (limit3 data)}}
-                    <a href="{{regName this.TenDV}}">
+                    {{#each data}}
+                    <a class="service-link" href="{{regName this.TenDV}}  
+                        data-id="{{MaDV}}"
+                       data-name="{{TenDV}}"
+                       data-price="{{Gia}}"
+                       data-description="{{Mota}}"
+                       data-image="{{HinhAnh}}>
                         <div class="coll coll-third">
                         <img src={{HinhAnh}} alt="" style="height: 140px;">
                         <div class="performance-information">
                             <p class="place">{{TenDV}}</p>
                             <p class="time">Dịch vụ sửa máy lạnh, điều hòa uy tín</p>
-                            <p class="desc">{{Mota}}</p>
+                            <p class="desc">{{sumUp Mota}}</p>
                             <!-- <button class="buy-ticket js-buy-ticket ">Buy ticket</button> -->
                         </div>
                     </div>
@@ -84,6 +89,38 @@
     </div>
 
    
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            //alert dưới chỉ hoạt động khi load lại trang
+            //alert("testing");
+        
+            const serviceLinks = document.querySelectorAll(".service-link");
+            serviceLinks.forEach(function(link){
+                link.addEventListener("click", (event)=>{
+                   const serviceId = link.getAttribute("data-id");
+                    const serviceName = link.getAttribute("data-name");
+                    const servicePrice = link.getAttribute("data-price");
+                    const serviceDesc = link.getAttribute("data-description");
+                    const serviceImg = link.getAttribute("data-image");
+                    const detailServiceData = {
+                        "Id":serviceId,
+                        "Name":serviceName,
+                        "Price":servicePrice,
+                        "Desc":serviceDesc,
+                        "Img":serviceImg
+                    }
+                    localStorage.setItem("serviceData", JSON.stringify(detailServiceData));
+                    console.log(serviceId,serviceName,serviceDesc,servicePrice,serviceImg);
+                   
+                })
+            })
+            
+            //const serviceDetail = req.params.serviceDetail;
+            //alert(`user slug: ${serviceDetail}`)
 
+            
+        })
+
+</script>
 
 </body>
