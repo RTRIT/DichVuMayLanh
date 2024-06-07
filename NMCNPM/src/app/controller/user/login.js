@@ -10,8 +10,8 @@ class loginController{
         // res.sendFile(path.join(__dirname, '../../../', 'resource/views', 'login.html'));
         // const api = 'https://mymusicpupu.000webhostapp.com/server2/getListDV.php';
         try {
-            const response = await fetch('https://mymusicpupu.000webhostapp.com/server2/getListDV.php');
-            const data = await response.json();
+            // const response = await fetch('https://mymusicpupu.000webhostapp.com/server2/getListDV.php');
+            // const data = await response.json();
             // res.json(data);
             res.render('users/login', {layout:false});
           } catch (error) {

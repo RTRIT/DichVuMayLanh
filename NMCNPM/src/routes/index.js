@@ -9,9 +9,10 @@ function route(app){
     // app.use('/search', searchRouter);
     // app.use('/news', newRouter);
     // Trang cho user
-    app.use('/', homeRouter);
-    app.use('/user', usersRouter);
     app.use('/admin', adminRouter);
+    app.use('/user', usersRouter);
+    app.use('/', homeRouter);
+   
     
     // app.use('/me', meRouter);
     // Trang cho admin

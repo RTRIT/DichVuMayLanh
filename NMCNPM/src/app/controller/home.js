@@ -28,6 +28,14 @@ class home{
             
         }
     }
+
+    async billList(req,res,next){
+        try {
+            res.render('cart')
+        } catch (error) {
+            
+        }
+    }
 }
 
 module.exports = new home;

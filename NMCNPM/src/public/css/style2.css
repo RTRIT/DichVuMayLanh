@@ -53,6 +53,7 @@ html{
 
 .text-center{
     text-align: center;
+    justify-content: center;
 }
 
 #header{
@@ -525,12 +526,8 @@ input[type=text], select, textarea {
   /* Add a background color and some padding around the form */
 
   .Form{
-    margin-top: 46px;
-    text-align: center;
-    
+    /* text-align: center; */
     margin-top: 92px;
-
-
   }
   .Form .form-desc{
     
@@ -553,10 +550,11 @@ input[type=text], select, textarea {
     /* padding: 46px; */
   }
 
-  .form-desc #desc1{
+#desc1{
     padding: 20px 0;
+    font-size: 20px;
   }
-  .form-desc #desc2{
+#desc2{
     margin: 20px 0;
     font-size: 30px;
   }
@@ -570,7 +568,7 @@ input[type=text], select, textarea {
     padding: 10px 0;
   }
 
-  .container form p{
+  .container form #heading-form{
     background-color: #45a049;
     color: blue;
     font-weight: 500;
@@ -600,10 +598,28 @@ input[type=text], select, textarea {
   .container button{
     text-align: center;
     padding: 8px 16px;
-    font-size: 20px;
+    font-size: 20px; 
     margin: 20px;
   }
 
+  .service-item {
+    background-color: aqua;
+    border-radius: 25px;
+    display: inline;
+    font-size: 10px;
+    padding: 10px;
+    margin: 10px;
+  }
 
-  
+  .service-item p{
+    display: inherit;
+  }
+
+  .lni-cross-circle{
+    font-size: 15px;
+  }
+
+  .container .date{
+    margin-top: 60px;
+  }
   

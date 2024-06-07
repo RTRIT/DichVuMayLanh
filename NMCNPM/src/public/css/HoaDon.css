@@ -18,6 +18,7 @@ body{
 } 
 
 .bill-management .tab{
+
     width: 1256px;
     cursor: pointer;
     background: rgb(255, 255, 255);
@@ -29,7 +30,7 @@ body{
     margin-left: 0;
     z-index: 10;
     margin-bottom: 20px;
-    padding: 10px 0;
+    
 }
 
 .col-3 {
@@ -43,10 +44,19 @@ body{
 
 .bill-management .product{
     padding: 10px;
-    
     justify-content: space-between;
     background-color: white;
     margin-bottom: 20px;
+}
+
+.bill-management .col-2{
+    padding: 10px;
+    text-align: center;
+}
+
+.bill-management > .tab > .col-2:hover{
+    color: black;
+    background-color: #ccc;
 }
 
 .order-header {
@@ -71,12 +81,21 @@ body{
     height: 80px;
 }
 
+.order-body{
+    padding: 70px 0px;
+}
+
 .order-body .detail{
-    display: flex;
-    max-width: 400px;
+    display: inline-flex;
+    /* max-width: 400px; */
     
 }
 
+.order-body .last-price{
+    display: inline-flex;
+    justify-content: flex-end;
+
+}
 
 
 .order-body .detail .product-info{
@@ -103,8 +122,8 @@ body{
 
 .order-footer div{
     padding: 10px;
-    display: flex;
-    justify-content: flex-end;
+    /* display: flex;
+    justify-content: flex-end; */
 }
 
 
@@ -118,6 +137,7 @@ body{
 .order-footer .detail-bill{
     color: #0b74e5;
     display: inline-flex;
+    justify-content: flex-end;
     
     border-radius: 5px;
     

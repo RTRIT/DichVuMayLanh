@@ -2,40 +2,52 @@
 <body>
     <div class="Form">
         <div class="form-desc">
-            <p id="desc1">Quý khách có thể gọi nhanh bằng cách bấm nút gọi phía dưới để yêu cầu dịch vụ.</p>
-            <button id="desc2">Hotline 028 3890 9294</button>
-            <h1>Hoặc điền thông tin để đặt dịch vụ</h1>
+            <p class="text-center" id="desc1"> Quý khách có thể gọi nhanh bằng cách bấm nút gọi phía dưới để yêu cầu dịch vụ.</p>
+            <p class="text-center" id="desc2"> Hotline 028 3890 9294</p>
+            <h1 class="text-center">Hoặc điền thông tin để đặt dịch vụ</h1>
         </div>
         <div class="container form-main">
-            <form method="post" id="reg-form" action="action_page.php">
-                <p id="">Thông tin đặt dịch vụ</p>
+            <form method="post" id="reg-form" action="/form">
+                <p class="text-center" id="heading-form">Thông tin đặt dịch vụ</p>
                 <div class="field-input">
-                    <div class="coll coll-half">
+                    <div class="field coll coll-half">
                         <label for="name">Tên khách hàng</label>
-                        <input type="text" class="form_input" name="name" placeholder="Name"></form>
+                        <input type="text" class="form_input" name="name" placeholder="Name">
                     </div>
-                    <div class="coll coll-half">
+                    <div class="field coll coll-half">
                         <label for="name">Số điện thoại</label>
-                        <input type="text" class="form_input" name="name" placeholder="Phone Number"></form>
+                        <input type="text" class="form_input" name="phoneNumber" placeholder="Phone Number">
                     </div>
                     <div class="field">
                         <label for="name">Địa chỉ</label>
-                        <input type="text" class="form_input" name="name" placeholder="Address"></form>
+                        <input type="text" class="form_input" name="Address" placeholder="Address">
                     </div>
-                    <div class="field">
+                    <div class="field selection">
                         <label for="name">Dịch vụ</label>
-                        <input type="text" class="form_input" name="name" placeholder="Service"></form>
+                        <select name="services" id="services" size="1">
+                            <option value="Bơm gas máy lạnh">Bơm gas máy lạnh</option>
+                            <option value="Di dời, tháo lắp máy lạnh">Di dời, tháo lắp máy lạnh</option>
+                            <option value="Sửa board máy lạnh Inventer">Sửa board máy lạnh Inventer</option>
+                            <option value="Máy lạnh bị đông đá">Máy lạnh bị đông đá</option>
+                            <option value="Máy lạnh bị chảy nước">Máy lạnh bị chảy nước</option>
+                            <option value="Sửa máy lạnh bị xì gas">Sửa máy lạnh bị xì gas</option>
+                        </select>
+                        <div class="" id="selected-services" >
+                        
+                        </div>
                     </div>
-                    <div class="field">
+                    <div class="field date">
                         <label for="name">Ngày thực hiện công việc</label>
-                        <input type="text" class="form_input" name="name" placeholder="Date"></form>
+                        <input type="date" class="form_input" name="date" placeholder="Date">
                     </div>
                 </div>
-              <button>Đặt hẹn</button>
-          
+                <button class="text-center">Đặt hẹn</button>
             </form>
+            
         </div>
-        
-      </div>
+    </div>
+
+    <script src="/js/form.js"></script>
+
 </body>
 
