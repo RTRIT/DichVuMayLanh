@@ -7,9 +7,6 @@ body{
     background-color: rgb(229, 229, 229);
 }
 
-.container{
-
-}
 
 
 
@@ -22,7 +19,7 @@ body{
 }
 
 .bill-management .tab{
-    max-width: 1000px;
+    width: 1256px;
     cursor: pointer;
     background: rgb(255, 255, 255);
     width: 100%;
@@ -34,7 +31,7 @@ body{
     margin-left: 0;
     z-index: 10;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 30px;
 }
 
 .bill-management .tab .col-3{
@@ -47,13 +44,13 @@ body{
     border: 1px solid rgb(174 174 179);
     margin-bottom: 5px;
     background-color: white;
-    max-width: 1000px;
+    width: 1256px;
     padding: 10px;
     margin-bottom: 20px;
 }
 
 .bill-management #search{
-    min-width: 800px;
+    min-width: 1000px;
     border: 0;
     border-right: 1px solid;
 
@@ -69,7 +66,7 @@ body{
 
 .bill-management .product{
     padding: 16px 16px;
-    max-width: 1000px;
+    max-width: 1256px;
     justify-content: space-between;
     background-color: white;
     margin-bottom: 20px;

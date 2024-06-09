@@ -69,6 +69,7 @@ html{
 
 /* Float right */
 #header #search_box,
+#header #cart,
 #profile_img 
 {
     float: right;
@@ -79,6 +80,7 @@ html{
 
 /* Hover for icon */
 #header #search_box:hover,
+#header #cart:hover,
 #profile_img:hover
 {
     color: #fff;
@@ -603,17 +605,24 @@ input[type=text], select, textarea {
   }
 
   .service-item {
-    background-color: aqua;
-    border-radius: 25px;
-    display: inline;
+    
+    border-bottom:1px solid rgb(174 174 179);
+
+    /* border-radius: 25px; */
+    /* display: inline; */
     font-size: 10px;
     padding: 10px;
     margin: 10px;
   }
 
   .service-item p{
-    display: inherit;
+    font-size: 15px;
   }
+
+.service-item .quantity #tel{
+    width: 32px;
+    text-align: center;
+}
 
   .lni-cross-circle{
     font-size: 15px;

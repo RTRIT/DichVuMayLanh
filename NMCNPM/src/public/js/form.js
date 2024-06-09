@@ -1,49 +1,97 @@
-
 document.addEventListener('DOMContentLoaded', function(event) {
     const selectElement = document.getElementById('services');
     const resultElement = document.getElementById('selected-services');
-    const formElement = document.getElementById('reg-form')
+    const formElement = document.getElementById('reg-form');
     const selectedServices = new Set();
     
-
     selectElement.addEventListener('change', function(event){
-        console.log(selectedServices)
-
         var selectedOption = event.target.value;
         if(!selectedServices.has(selectedOption)){
             selectedServices.add(selectedOption);
-            // create a `div` element has class name 'service-item'
-            var serviceItem = document.createElement('div');
-            serviceItem.classList.add('service-item');
-            // serviceItem.style.cssText = 'background-color: #77f0f0; padding: 5px 10px; border-radius: 20px; display: flex; align-items: center;';
 
-            // create a `p` element has content of selected service 
+            // create a `div` element with class name 'service-item'
+            var serviceItem = document.createElement('div');
+            serviceItem.classList.add('service-item', 'row');
+            
+            // create a `p` element with the content of the selected service 
             var serviceText = document.createElement('p');
             serviceText.textContent = selectedOption;
+            serviceText.classList.add('col-7');
             serviceItem.appendChild(serviceText);
 
-            // create a `i` element contains lineicon 
+            // create quantity controls
+            var quantity = document.createElement('div');
+            quantity.classList.add('quantity', 'col-3');
+
+            var decrease = document.createElement('span');
+            decrease.classList.add('decrease');
+            var increase = document.createElement('span');
+            increase.classList.add('increase');
+
+            var minusIcon = document.createElement('i');
+            minusIcon.classList.add('lni', 'lni-minus');
+            var plusIcon = document.createElement('i');
+            plusIcon.classList.add('lni', 'lni-plus');
+            decrease.appendChild(minusIcon);
+            increase.appendChild(plusIcon);
+
+            var cnt = document.createElement('input');
+            cnt.type = 'tel';
+            cnt.name = 'tel';
+            cnt.id = 'tel';
+            cnt.value = '1';
+
+            quantity.appendChild(decrease);
+            quantity.appendChild(cnt);
+            quantity.appendChild(increase);
+            serviceItem.appendChild(quantity);
+
+            // create a `i` element that contains the lineicon 
             var removeIcon = document.createElement('i');
-            removeIcon.classList.add('lni', 'lni-cross-circle');
-            // removeIcon.style.cssText = 'margin-left: 10px; cursor: pointer;';
-            // Listening click event
+            removeIcon.classList.add('col-2', 'lni', 'lni-cross-circle');
+
+            // add icon into the selected service
+            serviceItem.appendChild(removeIcon);
+            resultElement.appendChild(serviceItem);
+
+            // hidden input for sending list of services used
+            var hiddenInput = document.createElement('input');
+            hiddenInput.at
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'CTPYC[]';
+            hiddenInput.value = `${selectedOption}:${cnt.value}` ;
+            
+            formElement.appendChild(hiddenInput);
+
+            // LISTENING CLICK EVENT
+            // On minus icon and on plus icon
+            decrease.addEventListener("click", function() {
+                let currentValue = parseInt(cnt.value);
+                if (currentValue > 1) {
+                    cnt.value = currentValue - 1;
+                    updateHiddenInput();
+                }
+            });
+
+            increase.addEventListener("click", function() {
+                let currentValue = parseInt(cnt.value);
+                cnt.value = currentValue + 1;
+                updateHiddenInput();
+            });
+
+            // On Cross icon
             removeIcon.addEventListener('click', function() {
                 resultElement.removeChild(serviceItem);
                 formElement.removeChild(hiddenInput);
                 selectedServices.delete(selectedOption);
             });
 
-            serviceItem.appendChild(removeIcon);
-            resultElement.appendChild(serviceItem);
+            // Update hidden input value when quantity changes
+            cnt.addEventListener('input', updateHiddenInput);
 
-            // hidden input for sending list of servives used
-            var hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'selected_services[]';
-            hiddenInput.value = selectedOption;
-            formElement.appendChild(hiddenInput);
-
+            function updateHiddenInput() {
+                hiddenInput.value = `${selectedOption}:${cnt.value}` ; ;
+            }
         }
-        
     });
 });

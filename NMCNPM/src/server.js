@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser')
 const morgan = require('morgan');
 const path = require('path');
 const handlebars = require('express-handlebars').engine
@@ -54,6 +55,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // load routers
 // app.use('/', require('./server/users/users.router'));
+
+app.use(cookieParser());
 
 route(app);
 

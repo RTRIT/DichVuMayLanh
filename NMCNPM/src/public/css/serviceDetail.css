@@ -7,10 +7,26 @@
     margin-top: 92px;
 }
 
+.container .service-img-details img{
+    width: 600px;
+    height: 400px;
+}
+
 .container .service-img-list img{
     width:10%;
     height:10%;
 }
+
+.service-dsc .row1{
+    height: 300px;
+}
+
+
+
+.service-dsc .row2{
+    height: 100px;
+}
+
 
 .container .form-group{
     display: flex;

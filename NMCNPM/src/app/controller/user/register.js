@@ -7,17 +7,37 @@ const path = require('path'); // Import the path module,
 
 class registerController{
     async show(req,res,next){
-        // res.sendFile(path.join(__dirname, '../../../', 'resource/views', 'register.html'));
-        // const api = 'https://mymusicpupu.000webhostapp.com/server2/getListDV.php';
         try {
-            // const response = await fetch('https://mymusicpupu.000webhostapp.com/server2/getListDV.php');
-            // const data = await response.json();
-            // res.json(data);
             res.render('users/register', {layout:false});
           } catch (error) {
             res.status(500).json({ error: 'Failed to fetch data' });
           }
          
+    }
+    async register(req,res,next){
+      try {
+
+        res.json(req.body);
+        fetch('https://mymusicpupu.000webhostapp.com/server2/KhanhHang/registerUser.php',{
+          method: 'POST',
+          body: JSON.stringify(req.body),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(response => {
+            if(!response.ok){
+              throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+          }) //response trả về một promise
+          .then(data => {
+            res.redirect('/login');
+          })
+          
+        } catch (error) {
+          res.status(500).json({ error: 'Failed to register user' });
+        }
     }
 }
 

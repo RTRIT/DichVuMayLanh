@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>Registration Form</title>
-		<style>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
 			body {
 				font-family: Arial, sans-serif;
 				background-color: #f3f3f3;
@@ -52,7 +51,8 @@
 				border-radius: 5px;
 			}
 
-			button[type="submit"] {
+			.main button {
+				margin-top: 10px;
 				padding: 15px;
 				border-radius: 10px;
 				border: none;
@@ -62,90 +62,61 @@
 				width: 100%;
 				font-size: 16px;
 			}
+			
 		</style>
-	</head>
+</head>
 
-	<body>
-		<div class="main">
-			<h2>Registration Form</h2>
-			<form action="">
-				<label for="first"
-					>First Name:</label
-				>
-				<input
-					type="text"
-					id="first"
-					name="first"
-					required
-				/>
+<body>
+	<form id="formSend" action="/user/register" method="post">
+		 <div class="main" id="step-1" >
+			<h2>Registration</h2>
+				<label for="email">Username:</label>
+				<input type="text" id="email" name="email" required />
 
-				<label for="last"
-					>Last Name:</label
-				>
-				<input
-					type="text"
-					id="last"
-					name="last"
-					required
-				/>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required />
 
-				<label for="email">Email:</label>
-				<input
-					type="email"
-					id="email"
-					name="email"
-					required
-				/>
+				<label for="repassword">Re-type Password:</label>
+				<input type="password" id="repassword" name="repassword" required />
 
-				<label for="password"
-					>Password:</label
-				>
-				<input
-					type="password"
-					id="password"
-					name="password"
-					pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
-					title="Password must contain at least one number, 
-						one alphabet, one symbol, and be at 
-						least 8 characters long"
-					required
-				/>
-
-				<label for="repassword"
-					>Re-type Password:</label
-				>
-				<input
-					type="password"
-					id="repassword"
-					name="repassword"
-					required
-				/>
-
-				<label for="mobile"
-					>Contact:</label
-				>
-				<input
-					type="text"
-					id="mobile"
-					name="mobile"
-					maxlength="10"
-					required
-				/>
-
-				<label for="gender"
-					>Gender:</label
-				>
-				<p>
-          <a href="login"
-          style="text-decoration: none;">
-            Already have account?
-          </a>
-        </p>
-
-				<button type="submit">
-					Submit
-				</button>
-			</form>
+				<button type="button" onclick="nextStep()">Next</button>
 		</div>
-	</body>
+		<div class="main" id="step-2" style="display:none;">
+			<h2>Information</h2>
+				<label for="first">Tên:</label>
+				<input type="text" id="first" name="first" required />
+
+				<label for="address">Địa chỉ:</label>
+				<input type="text" id="address" name="address" required />
+
+				<label for="mobile">Số điện thoại:</label>
+				<input type="text" id="mobile" name="mobile" maxlength="10" required />
+
+				<label for="cccd">CCCD:</label>
+				<input type="text" id="cccd" name="cccd" required />
+
+				<label for="gender">Giới tính:</label>
+				<input type="text" id="gender" name="gender" />
+
+				<button style="background-color: #555;" type="button" onclick="backStep()">Back</button>
+				<button  type="submit" >Submit</button>
+			
+	</form>
+   
+    </div>
+
+    <script>
+		function backStep(){
+			document.getElementById("step-1").style.display = "block";
+            document.getElementById("step-2").style.display = "none";
+		}
+
+        function nextStep() {
+            document.getElementById("step-1").style.display = "none";
+            document.getElementById("step-2").style.display = "block";
+        }
+
+        
+    </script>
+</body>
 </html>

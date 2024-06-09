@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Registration</title>
+		<link rel="stylesheet" href="style.css">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f3f3f3;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+			.main {
+				background-color: #fff;
+				border-radius: 15px;
+				box-shadow: 0 0 20px
+					rgba(0, 0, 0, 0.2);
+				padding: 20px;
+				width: 300px;
+			}
+
+			.main h2 {
+				color: #4caf50;
+				margin-bottom: 20px;
+			}
+
+			label {
+				display: block;
+				margin-bottom: 5px;
+				color: #555;
+				font-weight: bold;
+			}
+
+			input[type="text"],
+			input[type="email"],
+			input[type="password"],
+			select {
+				width: 100%;
+				margin-bottom: 15px;
+				padding: 10px;
+				box-sizing: border-box;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+			}
+
+			button[type="submit"] {
+				padding: 15px;
+				border-radius: 10px;
+				border: none;
+				background-color: #4caf50;
+				color: white;
+				cursor: pointer;
+				width: 100%;
+				font-size: 16px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<h2>Registration</h2>
+			<form id="registration-form" action="" method="post">
+				<label for="first"
+					>Tên:</label
+				>
+				<input
+					type="text"
+					id="first"
+					name="first"
+					required
+				/>
+                <label for="address"
+					>Địa chỉ:</label
+				>
+				<input
+					type="text"
+					id="address"
+					name="address"
+					required
+				/>
+
+
+
+				<label for="mobile"
+					>Số điện thoại:</label
+				>
+				<input
+					type="text"
+					id="mobile"
+					name="mobile"
+					maxlength="10"
+					required
+				/>
+                <label for="cccd"
+					>CCCD:</label
+				>
+				<input
+					type="text"
+					id="cccd"
+					name="cccd"
+					required
+				/>
+
+				<label for="gender"
+					>Giới tính:</label
+				>
+				<p>
+          <a href="login"
+          style="text-decoration: none;">
+            Already have account?
+          </a>
+        </p>
+
+				<button type="submit">
+					<a href="./register/info" style="color: #fff;">
+						Submit
+					</a>
+				</button>
+			</form>
+		</div>
+
+	</body>
+	
+</html>

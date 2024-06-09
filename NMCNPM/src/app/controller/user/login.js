@@ -24,22 +24,11 @@ class loginController{
         // Destructing assignment
         // Get value from login Form
         const {username, password} = req.body;
+        var errors = [];
+        var flag = false;
 
    
-        // Check if username and password are provided
-      // if (!username || !password) {
-      //   return res.status(400).json({ message: "Missing username or password 2" });
-      // }
-
-        // console.log(usrnane)
-        // const response = await fetch('https://161b53d2-6d44-4835-b554-293a71fa43a8.mock.pstmn.io/getUserID',{
-        //   method: 'POST',
-        //   body: JSON.stringify({username, password}),
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //   }
-        // });
-
+  
         //Send login Api
         fetch('https://mymusicpupu.000webhostapp.com/server2/login.php',{
           method: 'POST',
@@ -49,42 +38,25 @@ class loginController{
           }
         })
         .then(response => {
-          const data = response.json();
-          res.json(data);
-
-        })
-        // Retrive data (message, token)
-        
-    
-        // Check if the fetch is successful (status code 200)
-        // if (response.ok) {
+          if(!response.ok){
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.json();
+        }) //response trả về một promise
+        .then(data => {
           
-        //   // res.json(data)
-        //   // Assuming the response contains an object with user_id and user_name properties
-        //   res.cookie('token', data.token);
-        //   res.json(data.token)
-        //   // this.verifyToken(data.token);
-        //   res.redirect('/')
-        // } else {
-        //   // Handle the error if fetch is not successful
-        //   // For example, if response status is not OK (200)
-        //   console.error('Fetch was not successful:', response.status);
-        //   res.status(response.status).send('Fetch was not successful');
-        // }
+          res.cookie('token', data.token);
+          res.cookie('id_user', data.id_user);
+          res.cookie('id_role', data.id_role);
+          res.redirect('/');
+        })
+       
       } catch (error) {
         // Handle other errors that might occur during the fetch
         console.error('Error during fetch:', error);
         res.status(500).send('Internal Server Error');
       }
     }
-    
-  
-  // Example usage:
-  // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3JvbGUiOiJhdmF0YXJfYWRtaW4iLCJleHBpcmVfYXQiOiIxNjIwNTMwOTUyIn0.jtUsZt1pLpZK6T1V_rIOGnqgy8xLPsf4oZSbtVjT1W0";
-  // const permission = "admin";
-  
-  // const isValidToken = verifyToken(token, permission);
-  // console.log("Is token valid?", isValidToken);
 }
 
 module.exports = new loginController;

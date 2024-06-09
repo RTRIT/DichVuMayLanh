@@ -17,7 +17,7 @@ body{
     padding: 20px 20px;
 } 
 
-.bill-management .tab{
+.bill-management .tabb{
 
     width: 1256px;
     cursor: pointer;
@@ -34,10 +34,7 @@ body{
 }
 
 .col-3 {
-
     text-align: center;
-    
-
 }
 
 
@@ -54,7 +51,7 @@ body{
     text-align: center;
 }
 
-.bill-management > .tab > .col-2:hover{
+.bill-management > .tabb > .col-2:hover{
     color: black;
     background-color: #ccc;
 }
@@ -134,13 +131,41 @@ body{
 } 
 
 
-.order-footer .detail-bill{
-    color: #0b74e5;
-    display: inline-flex;
-    justify-content: flex-end;
-    
-    border-radius: 5px;
-    
-    border-style: dashed;
-    margin-left: auto;
+.order-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 12px;
+    width: 100%;
+ 
+
 }
+
+.order-footer .total-money{
+    display: flex;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.order-footer .button-group div{
+    padding: 12px 8px;
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid rgb(11, 116, 229);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: rgb(11, 116, 229);
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 8px;
+    float: right;
+}
+.order-footer .button-group div:hover{
+    
+}
+

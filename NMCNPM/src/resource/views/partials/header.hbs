@@ -29,16 +29,59 @@
         </ul>
         <div id="profile_img">
             <li>
-                <i class="lni lni-user"></i>
+                <a href="/profile"><i class="lni lni-user"></i></a>
+               
                 <ul class="subnav2">
-                    <li><a href="./HoaDon"><i class="lni lni-list"></i>Hoá Đơn</a></li>
-                    <li><a href="#"><i class="lni lni-list"></i>Phiếu Dịch Vụ</a></li>
-                    <li><a href="#"><i class="lni lni-list"></i>Phiếu Bảo Hành</a></li>
-                    <li><a href="#"><i class="lni lni-list"></i>Cài Đăt</a></li>
+                    <li><a href="/HoaDon"><i class="lni lni-list"></i>Hoá Đơn</a></li>
+                    <li><a href="/PhieuDichVu"><i class="lni lni-list"></i>Phiếu Dịch Vụ</a></li>
+                    <li><a href="https://chatgpt.com/c/be88ce86-0678-4f4b-b1ec-3127cfc3cc92"><i class="lni lni-list"></i>Phiếu Bảo Hành</a></li>
+                    <li id="admin"><a href="/Admin"><i class="lni lni-list"></i>Admin</a></li>
+                    <li id="nhanVien"><a href="https://chatgpt.com/c/be88ce86-0678-4f4b-b1ec-3127cfc3cc92"><i class="lni lni-list"></i>Nhân viên</a></li>
+                    <li><a href="https://chatgpt.com/c/be88ce86-0678-4f4b-b1ec-3127cfc3cc92"><i class="lni lni-list"></i>Cài Đăt</a></li>
                 </ul>
             </li>
+        </div>
+        <div id="cart">
+            <i class="lni lni-cart"></i>
         </div>
         <div id="search_box">
             <i class="lni lni-search"></i>
         </div>
+        
     </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event){
+            // Split the cookie string by ';' to get individual cookies
+            var cookies = document.cookie.split(';');
+            var idRole;
+            var idUser;
+            // Iterate through each cookie to find the ones with names 'id_role' and 'id_user'
+            cookies.forEach(function(cookie) {
+                // Split each cookie into its name and value
+                var parts = cookie.trim().split('=');
+                // Check if the name is 'id_role'
+                if (parts[0] === 'id_role') {
+                    // If found, assign its value to idRole variable
+                    idRole = parts[1];
+                }
+                // Check if the name is 'id_user'
+                if (parts[0] === 'id_user') {
+                    // If found, assign its value to idUser variable
+                    idUser = parts[1];
+                }
+            });
+            // Display the values of the 'id_role' and 'id_user' cookies
+                var adminLink = document.getElementById('admin'); // Select the 'Admin' link
+                    var nhanVienLink = document.getElementById('nhanVien'); // Select the 'Admin' link
+               if (idRole === '2') {
+                    adminLink.style.display = 'none'; // Hide the 'Admin' link
+                    nhanVienLink.style.display = 'none'; // Hide the 'Admin' link
+                }else if(idRole === '1'){
+                    adminLink.style.display = 'none'; // Hide the 'Admin' link
+                }else{
+                    nhanVienLink.style.display = 'none'; // Hide the 'Admin' link
+                }
+            })
+
+</script>
