@@ -1,17 +1,17 @@
 const path = require('path'); // Import the path module, 
 
 
-class magUserController{
+class magPYCController{
     async show(req,res,next){
         try {
-            res.render('admin/magUser', {layout:'admin/main'})
+            res.render('admin/magPYC', {layout:'admin/main'})
         } catch (error) {
             
         }
         
 
-    }
+    }å
 }
 
 
-module.exports = new magUserController;
+module.exports = new magPYCController;
