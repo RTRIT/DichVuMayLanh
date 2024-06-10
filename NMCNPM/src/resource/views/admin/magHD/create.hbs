@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" href="/css/formCreateHD.css">
+    </head>
+
+<body>
+    <div class="container">
+    <h3>Thông tin hoá đơn</h3>
+    <form id="reg-form">
+         <div class="form-group row p-3">
+            <label for="inputEmail3 col" class="col-sm-2 col-form-label">Mã nhân viên</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="MNV">
+            </div>
+        </div>
+        <div class="form-group row p-3">
+            <label for="inputEmail3 col" class="col-sm-2 col-form-label">Mã khách hàng</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="MKH">
+            </div>
+        </div>
+        <div class="form-group row p-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Ngày lập</label>
+            <div class="col-sm-10">
+            <input type="date" class="form-control" id="inputEmail3" placeholder="Date">
+            </div>
+        </div>
+        <div class="form-group row p-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Mã PP</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="MPP">
+            </div>
+        </div>
+        <div class="from-group row  p-3">
+            <label for="input4" class="col-sm-2 col-form-label"> Dịch Vụ</label>
+            <div class="col-sm-10">
+                <div class="field selection">
+                    <select name="services" id="services" size="1">
+                        <option value="Bơm gas máy lạnh">Bơm gas máy lạnh</option>
+                        <option value="Di dời, tháo lắp máy lạnh">Di dời, tháo lắp máy lạnh</option>
+                        <option value="Sửa board máy lạnh Inventer">Sửa board máy lạnh Inventer</option>
+                        <option value="Máy lạnh bị đông đá">Máy lạnh bị đông đá</option>
+                        <option value="Máy lạnh bị chảy nước">Máy lạnh bị chảy nước</option>
+                        <option value="Sửa máy lạnh bị xì gas">Sửa máy lạnh bị xì gas</option>
+                    </select>
+                    <div class="" id="selected-services" >
+                    
+                    </div>
+                </div>
+
+            </div>
+
+
+
+           
+            
+        </div>
+        {{!-- <fieldset class="form-group">
+            <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                <label class="form-check-label" for="gridRadios1">
+                    First radio
+                </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                    Second radio
+                </label>
+                </div>
+                <div class="form-check disabled">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                <label class="form-check-label" for="gridRadios3">
+                    Third disabled radio
+                </label>
+                </div>
+            </div>
+            </div>
+        </fieldset> --}}
+        {{!-- <div class="form-group row">
+            <div class="col-sm-2">Checkbox</div>
+            <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                <label class="form-check-label" for="gridCheck1">
+                Example checkbox
+                </label>
+            </div>
+            </div>
+        </div> --}}
+        <div class="form-group row">
+            <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+ <script src="/js/form.js"></script>
+    <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            const increaseBtn = document.querySelector(".increase");
+            const decreaseBtn = document.querySelector(".decrease");
+            const quantityInput = document.querySelector("#tel");
+
+            increaseBtn.addEventListener("click", function() {
+                let currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+            });
+
+            decreaseBtn.addEventListener("click", function() {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                }
+            });
+        });
+    </script>
+</body>

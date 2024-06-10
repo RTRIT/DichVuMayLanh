@@ -16,7 +16,10 @@ router.get('/QlyDV',QlyDV.show )
 router.get('/QlyPYC',QlyPYC.show )
 
 router.get('/QlyHD',QlyHD.show )
-router.get('/QlyHD/taoHD',QlyHD.show )
+router.get('/QlyHD/taoHD',QlyHD.showFormHD )
+router.post('/QlyHD/taoHD',QlyHD.createHD )
+router.get('/QlyHD/detail',QlyHD.detailHD )
+
 
 router.get('/QlyPBH',QlyPBH.show )
 
