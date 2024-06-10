@@ -21,5 +21,17 @@ module.exports = {
     },
     sumUp: function(str){
         return str.split(" ", 12).join(" ")+"...";
+    },
+
+    option: function(mtt){
+      if(mtt==1){
+        return "Đang chờ xử lý";
+      }else if(mtt==2){
+        return "Đã chấp nhận";
+      }else if(mtt=3){
+        return "Đã thanh toán";
+      }else{
+        return "Đã huỷ";
+      }
     }
   }

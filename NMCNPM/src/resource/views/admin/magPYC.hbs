@@ -1,4 +1,3 @@
-
 <main class="content px-5 py-4">
     <div class="content-fluid">
         <div class="mb-3">
@@ -7,147 +6,132 @@
               Quản lý phiếu yêu cầu
               </h3>
               <div>
-                <select name="" id="" style="float: right;">
-                  <option value="1">Đang xử lý</option>
-                  <option value="2">Đã chấp nhận</option>
-                  <option value="3">Đã thanh toán</option>
-                  <option value="4">Đã huỷ</option>
-                </select>
+                <form action="/admin/QlyPYC" id="myForm" method="post">
+                  <select name="MTT" id="mttSelect" style="float: right;">
+                    <option value="1">Đang xử lý</option>
+                    <option value="2">Đã chấp nhận</option>
+                    <option value="3">Đã thanh toán</option>
+                    <option value="4">Đã huỷ</option>
+                  </select>
+                  <input hidden type="text" name="selectedValue" id="hiddenInput">
+                </form>
               </div>
-            
           </div>
-           
         <table class="table table-hover ">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Mã PYC</th>
+                    <th scope="col">MãKh</th>
+                    <th scope="col">Địa chỉ </th>
+                    <th scope="col">Trạng thái</th>
                     <th scope="col"></th>
-                    </tr>
+                </tr>
             </thead>
             <tbody>
+              {{#each data}}
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>{{MaPYC}}</td>
+                    <td>{{Makh}}</td>
+                    <td>{{Diachi}}</td>
+                    <td>{{option MaTT}}</td>
                     <td>
                       <button class="btn accept-btn btn-success">Accept</button>
                       <i class="fa-regular edit-btn fa-pen-to-square btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
-                      <a href="/admin/QlyHD/taoHD" class="btn create-btn btn-danger" style="display: none;">Tạo Hoá Đơn</a>
-                      
+                      <a href="/admin/QlyHD/taoHD" class="btn create-btn btn-danger" style="display: none;">Tạo Hoá Đơn</a>  
                     </td>
-                    
                 </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>
-                      <button class="btn accept-btn btn-success" >Accept</button>
-                      <i class="fa-regular edit-btn fa-pen-to-square btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>
-                      <button class="btn accept-btn btn-success" >Accept</button>
-                      <i class="fa-regular edit-btn fa-pen-to-square btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
-                    </td>
-                    
-                </tr>
+              {{/each}}
             </tbody>
-            </table>
+        </table>
         </div>    
     </div>
 </main>
 
-
-
-    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
                 <div class="row pt-1">
-                  <div class="col-6 mb-3">
-                    <h6>Tên tài khoản</h6>
-                    <input type="text" value="johndoe123" readonly>
-                    
-                  </div>
-                  <div class="col-6 mb-3">
-                    <h6>Số điện thoại</h6>
-                    <input type="text" value="987 654 321" readonly>
-                    
-                  </div>
+                    <div class="col-6 mb-3">
+                        <h6>Tên tài khoản</h6>
+                        <input type="text" value="johndoe123" readonly>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <h6>Số điện thoại</h6>
+                        <input type="text" value="987 654 321" readonly>
+                    </div>
                 </div>
                 <div class="row pt-1">
-                  <div class="col-12 mb-3">
-                    <h6>Địa chỉ</h6>
-                    <input type="text" value="123 Main St" readonly>
-                  </div>
+                    <div class="col-12 mb-3">
+                        <h6>Địa chỉ</h6>
+                        <input type="text" value="123 Main St" readonly>
+                    </div>
                 </div>
                 <div class="row pt-1">
-                  <div class="col-12 mb-3">
-                    <h6>Ngày sinh</h6>
-                    <input type="text" value="01/01/1990" readonly>
-                  </div>
+                    <div class="col-12 mb-3">
+                        <h6>Ngày sinh</h6>
+                        <input type="text" value="01/01/1990" readonly>
+                    </div>
                 </div>
                 <div class="row pt-1">
-                  <div class="col-12 mb-3">
-                    <h6>CMND</h6>
-                    <input type="text" value="A1234567" readonly>
-                  </div>
+                    <div class="col-12 mb-3">
+                        <h6>CMND</h6>
+                        <input type="text" value="A1234567" readonly>
+                    </div>
                 </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="editBtn" type="button" class="btn btn-primary " data-bs-dismiss="modal">Edit</button>
-                    <button id="saveBtn" type="button" class="btn btn-success ">Save changes</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="editBtn" type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit</button>
+                <button id="saveBtn" type="button" class="btn btn-success">Save changes</button>
             </div>
         </div>
     </div>
+</div>
+
 <script>
 
   document.addEventListener("DOMContentLoaded", (event) => {
-    //get all the accept buttons
-     const acceptBtns = document.querySelectorAll('.accept-btn');
-     //add click event listener to each accept button
-     acceptBtns.forEach(button =>{
-        button.addEventListener('click', function(event){
-          button.style.display = 'none';
-          const editBtn = button.nextElementSibling;
-          const createBtn = editBtn.nextElementSibling;
-          editBtn.style.display = 'inline-block';
-          createBtn.style.display = 'inline-block';
-        })
-      })
-    })
- 
+    // Get all the accept buttons
+    const acceptBtns = document.querySelectorAll('.accept-btn');
+    // Add click event listener to each accept button
+    acceptBtns.forEach(button => {
+        button.addEventListener('click', function(event) {
+            button.style.display = 'none';
+            const editBtn = button.nextElementSibling;
+            const createBtn = editBtn.nextElementSibling;
+            editBtn.style.display = 'inline-block';
+            createBtn.style.display = 'inline-block';
+        });
+    });
 
-  //Edit phiếu yêu cầu
+    // Listening to the change on the select element
+    //document.getElementById('mttSelect').addEventListener('change', (event) => {
+        // Set the value of the hidden input field within the form
+        //document.getElementById('hiddenInput').value = event.target.value;
+
+        // Submit the form
+        //document.getElementById('myForm').submit();
+    //});
+
+    // Edit phiếu yêu cầu
     document.getElementById('editBtn').addEventListener('click', function() {
-      const inputs = document.querySelectorAll('input[type="text"]');
-      inputs.forEach(input => input.removeAttribute('readonly'));
-      document.getElementById('saveBtn').removeAttribute('disabled');
+        const inputs = document.querySelectorAll('input[type="text"]');
+        inputs.forEach(input => input.removeAttribute('readonly'));
+        document.getElementById('saveBtn').removeAttribute('disabled');
     });
 
     document.getElementById('saveBtn').addEventListener('click', function() {
-      const inputs = document.querySelectorAll('input[type="text"]');
-      inputs.forEach(input => input.setAttribute('readonly', true));
-      this.setAttribute('disabled', true);
+        const inputs = document.querySelectorAll('input[type="text"]');
+        inputs.forEach(input => input.setAttribute('readonly', true));
+        this.setAttribute('disabled', true);
     });
+});
 
 
  

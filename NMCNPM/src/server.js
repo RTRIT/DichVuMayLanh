@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 const handlebars = require('express-handlebars').engine
@@ -53,9 +54,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Parse JSON bodies (as sent by API clients)
+app.use(bodyParser.json());
+
+
 // load routers
 // app.use('/', require('./server/users/users.router'));
-
 app.use(cookieParser());
 
 route(app);
