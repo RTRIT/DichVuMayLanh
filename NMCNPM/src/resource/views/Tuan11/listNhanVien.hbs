@@ -1,0 +1,151 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/e30ea15e78.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/style3.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script src="/js/script.js"></script>
+
+
+<main class="content px-5 py-4">
+    <div class="content-fluid">
+        <div class="mb-3">
+            <h3 class="fw-bold fs-4 mb-3">Quản lý nhân viên</h3>
+            <table class="table table-hover ">
+                <thead>
+                    <tr>
+                        <th scope="col">Mã nhân viên</th>
+                        <th scope="col">Tên nhân viên</th>
+                        <th scope="col">Ngày sinh</th>
+                        <th scope="col">Số Điện Thoại</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr>
+                        <th scope="row">{{Manv}}</th>
+                        <td>{{Hoten}}</td>
+                        <td>{{Ngaysinh}}</td>
+                        <td>{{Sodienthoai}}</td>
+                        <td>
+                            <i class="fa-regular fa-pen-to-square btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" data-manv="{{Manv}}" data-tennv="{{Hoten}}"
+                                data-ngaysinh="{{Ngaysinh}}" data-sodienthoai="{{Sodienthoai}}" data-diachi="{{DiaChi}}"
+                                data-luong="{{Luong}}"></i>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa thông tin nhân viên</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row pt-1">
+                    <div id="modalManv"></div>
+                    <div class="col-6 mb-3">
+                        <h6>Tên nhân viên</h6>
+                        <input type="text" id="modalTennv">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <h6>Số điện thoại</h6>
+                        <input type="text" id="modalSodienthoai">
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-12 mb-3">
+                        <h6>Địa chỉ</h6>
+                        <input type="text" id="modalDiachi">
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-12 mb-3">
+                        <h6>Ngày sinh</h6>
+                        <input type="text" id="modalNgaysinh">
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-12 mb-3">
+                        <h6>Lương</h6>
+                        <input type="text" id="modalLuong">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="saveBtn" type="button" class="btn btn-primary">Lưu thông tin</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the modal element
+        const exampleModal = document.getElementById('exampleModal');
+
+        // Add event listener for the show.bs.modal event
+        exampleModal.addEventListener('show.bs.modal', (event) => {
+            // Button that triggered the modal
+            const button = event.relatedTarget;
+
+            // Extract info from data-* attributes
+            const manv = button.getAttribute('data-manv');
+            const tennv = button.getAttribute('data-tennv');
+            const ngaysinh = button.getAttribute('data-ngaysinh');
+            const sodienthoai = button.getAttribute('data-sodienthoai');
+            const diachi = button.getAttribute('data-diachi');
+            const luong = button.getAttribute('data-luong');
+
+            // Update the modal's content
+            document.getElementById('modalManv').value = manv;
+            document.getElementById('modalTennv').value = tennv;
+            document.getElementById('modalNgaysinh').value = ngaysinh;
+            document.getElementById('modalSodienthoai').value = sodienthoai;
+            document.getElementById('modalDiachi').value = diachi;
+            document.getElementById('modalLuong').value = luong;
+        });
+
+
+        // Save changes button event
+        document.getElementById('saveBtn').addEventListener('click', async function () {
+            const inputs = document.querySelectorAll('#exampleModal input');
+
+            try {
+                const Hoten = document.getElementById('modalTennv').value;
+                const Sodienthoai = document.getElementById('modalSodienthoai').value;
+                const DiaChi = document.getElementById('modalDiachi').value;
+                const Ngaysinh = document.getElementById('modalNgaysinh').value;
+                const Luong = document.getElementById('modalLuong').value;
+                const Manv = document.getElementById('modalManv').value;;
+
+                const response = await fetch('/admin/updateNhanVien', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ Manv, Hoten, Sodienthoai, DiaChi, Ngaysinh, Luong })
+                });
+
+                const responseData = await response.json();
+                if (!response.ok) {
+                    throw new Error(responseData.error || 'Failed to update data');
+                }
+                alert('Thông tin đã được cập nhật thành công');
+            } catch (error) {
+                console.error('Error:', error.message);
+                alert('Đã xảy ra lỗi khi cập nhật thông tin');
+            }
+        });
+    });
+</script>

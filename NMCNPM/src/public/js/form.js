@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     
     selectElement.addEventListener('change', function(event){
         var selectedOption = event.target.value;
+        var selectedOption2 = event.target.selectedOptions[0].textContent;
         if(!selectedServices.has(selectedOption)){
             selectedServices.add(selectedOption);
 
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             
             // create a `p` element with the content of the selected service 
             var serviceText = document.createElement('p');
-            serviceText.textContent = selectedOption;
+            serviceText.textContent = selectedOption2;
             serviceText.classList.add('col-7');
             serviceItem.appendChild(serviceText);
 

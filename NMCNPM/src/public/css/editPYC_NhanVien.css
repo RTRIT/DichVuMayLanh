@@ -1,0 +1,112 @@
+/* Add a background color and some padding around the form */
+
+.container {
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100vh; /* Limit container height to viewport height */
+}
+
+.Form{
+    /* text-align: center; */
+    margin-top: 92px;
+  }
+  .Form .form-desc{
+    
+  }
+
+  .Form .container {
+
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	/* padding: 10px 10px 20px; */
+	transition: transform 0.2s;
+	width: 500px;
+
+    border-radius: 5px;
+    background-color: #fff;
+    border-radius: 2%;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    /* padding: 46px; */
+  }
+
+#desc1{
+    padding: 20px 0;
+    font-size: 20px;
+  }
+#desc2{
+    margin: 20px 0;
+    font-size: 30px;
+  }
+
+
+  .container #reg-form{
+    border-radius: 15px;
+  }
+
+  .container > #reg-form > p{
+    padding: 10px 0;
+  }
+
+  .container form #heading-form{
+    background-color: #45a049;
+    color: blue;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 30px;
+    padding: 24px 0;
+    width: 100%;
+
+  }
+
+  .container .field-input{
+    margin-top: 20px;
+  }
+
+  .container label{
+    float: left;
+  }
+
+  .container input{
+    border-style: outset;
+  }
+
+  .container .field{
+    padding: 0 8px;
+  }
+
+  .container button{
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 20px; 
+    margin: 20px;
+  }
+
+  .service-item {
+    
+    border-bottom:1px solid rgb(174 174 179);
+
+    /* border-radius: 25px; */
+    /* display: inline; */
+    font-size: 10px;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .service-item p{
+    font-size: 15px;
+  }
+
+.service-item .quantity #tel{
+    width: 32px;
+    text-align: center;
+}
+
+  .lni-cross-circle{
+    font-size: 15px;
+  }
+
+  .container .date{
+    margin-top: 60px;
+  }
+  

@@ -1,0 +1,260 @@
+<form action="/admin/QlyPYC/edit/{{data.MaPYC}}" method="POST" id="reg-form">
+    <div class="container border border-dark mt-5">
+        <!-- edit form column -->
+        <div class="col-lg-12 text-lg-center">
+            <h2>Chỉnh sửa thông tin phiếu yêu cầu</h2>
+            <br>
+            <br>
+        </div>
+        <div class="personal-info">
+            <div class="form-group row">
+                <div class="col-6">
+                    <div class="row">
+                        <label class="col-4 col-form-label form-control-label">Mã phiếu</label>
+                        <div class="col-2">
+                            <input class="form-control" type="text" name="MaPYC" value={{data.MaPYC}} readonly />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <label class="col-3 col-form-label form-control-label">Mã khách hàng</label>
+                        <div class="col-2">
+                            <input class="form-control" type="text" name="Makh" value={{data.Makh}} readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label form-control-label">Ngày hẹn</label>
+                <div class="col-lg-9">
+                    <input class="form-control" type="date" name="NgayHen" value="{{data.NgayHen}}" pattern="\d{4}-\d{2}-\d{2}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label form-control-label">Địa chỉ</label>
+                <div class="col-lg-9">
+                    <input class="form-control" type="text" name="Diachi" value="{{data.Diachi}}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label form-control-label">Ghi chú</label>
+                <div class="col-9">
+                    <textarea class="col-9" name="GhiChu" id="Notes">{{data.GhiChu}}</textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label form-control-label">Dịch vụ</label>
+                <select class="col-6" name="services" id="services" size="1">
+                    {{#each data2}}
+                        <option value={{MaDV}}>{{TenDV}}</option>
+                    {{/each}}
+                </select>
+                <div class="col-9">
+                    <div id="selected-services">
+                        {{#each data.ChiTietYeuCau}}
+                            <div class="row service-item" myMaDV={{MaDV}}>
+                                <p class="col-7">
+                                    {{nameDV MaDV ../data2}}
+                                </p>
+                                <div class="quantity col-3">
+                                    <span class="col-1 decrease">
+                                        <i class="lni lni-minus"></i>
+                                    </span>
+                                    <input class="col-2" type="tel" name="tel" id="tel" value={{this.SoLuong}} />
+                                    <span class="increase col-1">
+                                        <i class="lni lni-plus"></i>
+                                    </span>
+                                </div>
+                                <i class="col-2 lni lni-cross-circle"></i>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <input id="details" hidden type="text" name="Details"  >
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label"></label>
+                <div class="col-lg-9">
+                    <a href="/admin/QlyPYC" class="btn btn-secondary">Cancel</a>
+                    <input type="submit" class="btn btn-primary" value="Save Changes" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{{!-- <script src="/js/form.js"></script> --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const increaseBtns = document.querySelectorAll(".increase");
+        const decreaseBtns = document.querySelectorAll(".decrease");
+        const removeIcons = document.querySelectorAll(".lni-cross-circle");
+        const quantityInputs = document.querySelectorAll("#tel");
+
+        const selectElement = document.getElementById('services');
+        const resultElement = document.getElementById('selected-services');
+        const formElement = document.getElementById('reg-form');
+        const selectedServices = new Set();
+
+
+        increaseBtns.forEach((btn, index) => {
+            btn.addEventListener("click", function() {
+                let currentValue = parseInt(quantityInputs[index].value);
+                quantityInputs[index].value = currentValue + 1;
+            });
+        });
+
+        decreaseBtns.forEach((btn, index) => {
+            btn.addEventListener("click", function() {
+                let currentValue = parseInt(quantityInputs[index].value);
+                if (currentValue > 1) {
+                    quantityInputs[index].value = currentValue - 1;
+                }
+            });
+        });
+
+        removeIcons.forEach((item, index) => {
+            item.addEventListener("click", function() {
+                const serviceItem = item.closest(".service-item");
+                serviceItem.remove();
+            });
+        });
+        
+
+        //Duyệt qua những dịch vụ đã có sẵn từ trước
+        document.querySelectorAll(".service-item").forEach((item, index) => {
+            selectedServices.add(item.getAttribute('myMaDV'));
+        })
+
+        //Xem việc chọn service đã có từ chuwa
+        //Chọn từ option
+        selectElement.addEventListener('change', function(event){
+            var selectedOption = event.target.value;
+            var selectedOption2 = event.target.selectedOptions[0].textContent;
+            if(!selectedServices.has(selectedOption)){
+                selectedServices.add(selectedOption);
+
+                var serviceItem = document.createElement('div');
+                serviceItem.classList.add('service-item', 'row');
+                serviceItem.setAttribute('myMaDV', selectedOption)
+
+                var serviceText = document.createElement('p');
+                serviceText.textContent = selectedOption2;
+                serviceText.classList.add('col-7');
+                serviceItem.appendChild(serviceText);
+
+                var quantity = document.createElement('div');
+                quantity.classList.add('quantity', 'col-3');
+
+                var decrease = document.createElement('span');
+                decrease.classList.add('decrease');
+                var increase = document.createElement('span');
+                increase.classList.add('increase');
+
+                var minusIcon = document.createElement('i');
+                minusIcon.classList.add('lni', 'lni-minus');
+                var plusIcon = document.createElement('i');
+                plusIcon.classList.add('lni', 'lni-plus');
+                decrease.appendChild(minusIcon);
+                increase.appendChild(plusIcon);
+
+                var cnt = document.createElement('input');
+                cnt.type = 'tel';
+                cnt.name = 'tel';
+                cnt.id = 'tel';
+                cnt.value = '1';
+
+                quantity.appendChild(decrease);
+                quantity.appendChild(cnt);
+                quantity.appendChild(increase);
+                serviceItem.appendChild(quantity);
+
+                var removeIcon = document.createElement('i');
+                removeIcon.classList.add('col-2', 'lni', 'lni-cross-circle');
+                serviceItem.appendChild(removeIcon);
+                resultElement.appendChild(serviceItem);
+
+
+                decrease.addEventListener("click", function() {
+                    let currentValue = parseInt(cnt.value);
+                    if (currentValue > 1) {
+                        cnt.value = currentValue - 1;
+                        updateHiddenInput();
+                    }
+                });
+
+                increase.addEventListener("click", function() {
+                    let currentValue = parseInt(cnt.value);
+                    cnt.value = currentValue + 1;
+                    updateHiddenInput();
+                });
+
+                removeIcon.addEventListener('click', function() {
+                    resultElement.removeChild(serviceItem);
+                    updateHiddenInput(); // Update the hidden input field
+                    selectedServices.delete(selectedOption);
+                });
+
+                function updateHiddenInput() {
+                    const serviceItems = document.querySelectorAll(".service-item");
+                    const selectedServicesAndQuantities = [];
+
+                    serviceItems.forEach(function(serviceItem) {
+                        const serviceId = serviceItem.getAttribute('myMaDV');
+                        const quantity = serviceItem.querySelector('input[type="tel"]').value;
+
+                        if (serviceId) { // Only include valid service IDs
+                            const serviceData = {
+                                "MaDV": serviceId,
+                                "SoLuong": quantity
+                            };
+                            selectedServicesAndQuantities.push(serviceData);
+                        }
+                    });
+
+                    const detailsJSON = JSON.stringify(selectedServicesAndQuantities);
+                    document.getElementById("details").value = detailsJSON;
+                }
+
+                
+            }
+        })
+       formElement.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get all service items
+            const serviceItems = document.querySelectorAll(".service-item");
+
+            // Create an array to store the selected services and quantities
+            const selectedServicesAndQuantities = [];
+
+            // Iterate through each service item
+            serviceItems.forEach(function(serviceItem) {
+                // Get the service ID and quantity for each item
+                const serviceId = serviceItem.getAttribute('myMaDV');
+                const quantity = serviceItem.querySelector('input[type="tel"]').value;
+                //console.log(serviceId,quantity)
+
+                // Create an object to store the service ID and quantity
+                const serviceData = {
+                    "MaDV": serviceId,
+                    "SoLuong": quantity
+                };
+                // Push the object to the array
+                selectedServicesAndQuantities.push(serviceData);
+            });
+
+            const detailsJSON = JSON.stringify(selectedServicesAndQuantities);
+            // Log the selected services and quantities
+            document.getElementById("details").value=detailsJSON;
+            formElement.submit();
+
+            // Now you can do whatever you want with the selected services and quantities, like sending them to the server via AJAX or processing them further.
+        });
+
+
+    });
+
+  
+</script>

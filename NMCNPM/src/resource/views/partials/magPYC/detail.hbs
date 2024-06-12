@@ -1,0 +1,46 @@
+{{!-- Chi tiết PYC bằng popUp --}}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                        <h6>Tên tài khoản</h6>
+                        <input type="text" value="{{Diachi}}" readonly>
+                        {{Diachi}}
+                    </div>
+                    <div class="col-6 mb-3">
+                        <h6>Số điện thoại</h6>
+                        <input type="text" value="987 654 321" readonly>
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-12 mb-3">
+                        <h6>Địa chỉ</h6>
+                        <input type="text" value="123 Main St" readonly>
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-12 mb-3">
+                        <h6>Ngày sinh</h6>
+                        <input type="text" value="01/01/1990" readonly>
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-12 mb-3">
+                        <h6>CMND</h6>
+                        <input type="text" value="A1234567" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="editBtn" type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit</button>
+                <button id="saveBtn" type="button" class="btn btn-success">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

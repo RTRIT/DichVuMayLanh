@@ -1,0 +1,152 @@
+
+{{!-- List ds PYC --}}
+<main class="content px-5 py-4">
+    <div class="content-fluid">
+        <div class="mb-3">
+          <div>
+             <h3 class="fw-bold fs-4 mb-3">
+              Quản lý phiếu yêu cầu
+              </h3>
+              <div>
+                <select name="MTT" id="mttSelect" style="float: right;">
+                    <option value=1>Đang xử lý</option>
+                    <option value=2>Đã chấp nhận</option>
+                    <option value=3>Đã thanh toán</option>
+                    <option value=4>Đã huỷ</option>
+                </select>
+                {{!--  --}}
+                <form action="/admin/QlyPYC" id="myForm" method="post"></form>
+                    <input hidden type="text" name="selectedValue" id="hiddenInput">
+                </form>
+
+                {{!-- form cancel pyc --}}
+                <form action=""></form>
+              </div>
+          </div>
+        <table class="table table-hover ">
+            <thead>
+                <tr>
+    
+                    <th scope="col">Mã PYC</th>
+                    <th scope="col">MãKh</th>
+                    <th scope="col">Địa chỉ </th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+              {{#each data}}
+                <tr>
+                    <td>{{MaPYC}}</td>
+                    <td>{{Makh}}</td>
+                    <td>{{Diachi}}</td>
+                    <td>{{option MaTT}}</td>
+                    <td>
+                        {{!-- <a href="/admin/QlyPYC/edit/{{MaPYC}}" class="btn cancel22-btn btn-danger">Cancel22</a>   --}}
+                     
+                      <a href="/admin/QlyPYC/accept/{{MaPYC}}" class="btn accept-btn btn-success">Accept</a>  
+                       <a href="/admin/QlyPYC/cacl/{{MaPYC}}" class="btn cancel-btn btn-danger">Cancel</a>  
+                      <a href="/admin/QlyPYC/edit/{{MaPYC}}" id="edit-btnnn" class="edit-btn btn btn-primary" style="display: none;">Edit</a>
+                      <a href="/admin/QlyHD/taoHD/{{MaPYC}}" class="btn create-btn btn-danger" style="display: none;">Tạo Hoá Đơn</a>  
+                      
+                      
+                      
+                    </td>
+                </tr>
+              {{/each}}
+            </tbody>
+        </table>
+        </div>    
+    </div>
+    <form id="formGetMTT">
+    </form>
+</main>
+
+
+<!-- Include the modal partial -->
+{{> magPYC/detail }}
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    // Get all the accept buttons
+    const acceptBtns = document.querySelectorAll('.accept-btn');
+    const cancelBtns = document.querySelectorAll('.cancel-btn');
+
+    // Add click event listener to each accept button
+    acceptBtns.forEach(button => {
+        button.addEventListener('click', function(event) {
+            button.style.display = 'none';
+            const cancelBtn = button.nextElementSibling;
+            const editBtn = cancelBtn.nextElementSibling;
+            const createBtn = editBtn.nextElementSibling;
+            cancelBtn.style.display='none'
+            editBtn.style.display = 'inline-block';
+            createBtn.style.display = 'inline-block';
+        });
+    });
+
+
+    //document.getElementById('edit-btn').addEventListener('click', (event) => {
+     //   alert("testing")
+    //})
+
+     // Add click event listener to each cancel button
+    cancelBtns.forEach(button => {
+        button.addEventListener('click', function(event) {
+            button.style.display = 'none';
+            //button.nextElementSibling.style.display = 'none'
+            //editBtn.style.display = 'inline-block';
+            //createBtn.style.display = 'inline-block';
+        });
+    });
+
+
+
+    // Listening to the change on the select element
+    document.getElementById("mttSelect").addEventListener('change', function(){
+            if(selectedOption==1){
+            //document.querySelectorAll('.edit-btnnn').style.display='none'
+            //document.querySelectorAll('.create-btn').style.display='none'
+            }else if(selectedOption==2){
+                document.querySelectorAll('.accept-btn').style.display='none'
+                document.querySelectorAll('.cancel-btn').style.display='none'
+                document.querySelectorAll('.edit-btnnn').style.display='inline-block'
+                document.querySelectorAll('.create-btn').style.display='inline-block'
+            }else if(selectedOption==3){
+                document.querySelectorAll('.accept-btnn').style.display='none'
+                document.querySelectorAll('.cancel-btn').style.display='none'
+            }
+            var selectedOption = this.value;
+            var myForm = document.getElementById('formGetMTT');            
+            //myForm.action = `/admin/QlyPYC/?MaTT=${selectedOption}`;
+            myForm.action = `/admin/QlyPYC/MaTT/${selectedOption}`;
+            myForm.submit();
+
+    })
+    //document.getElementById('mttSelect').addEventListener('change', (event) => {
+        // Set the value of the hidden input field within the form
+        //document.getElementById('hiddenInput').value = event.target.value;
+
+       
+
+
+   
+
+    // Edit pop-up phiếu yêu cầu
+    document.getElementById('editBtn').addEventListener('click', function() {
+        const inputs = document.querySelectorAll('input[type="text"]');
+        inputs.forEach(input => input.removeAttribute('readonly'));
+        document.getElementById('saveBtn').removeAttribute('disabled');
+    });
+    
+    document.getElementById('saveBtn').addEventListener('click', function() {
+        const inputs = document.querySelectorAll('input[type="text"]');
+        inputs.forEach(input => input.setAttribute('readonly', true));
+        this.setAttribute('disabled', true);
+    });
+});
+
+
+ 
+</script>

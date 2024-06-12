@@ -6,9 +6,9 @@
           <div class="row g-0">
             <div class="col-md-4 gradient-custom text-center text-white"
               style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-              <h5>John Doe</h5>
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="Avatar"
+                class="img-fluid my-5" style="width: 80px;" />
+              <h5>{{data.Tenkh}}</h5>
               <i class="far fa-edit mb-5"></i>
             </div>
             <div class="col-md-8">
@@ -18,31 +18,29 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Tên tài khoản</h6>
-                    <input type="text" value="johndoe123" readonly>
-                    <p class="text-muted">johndoe123</p>
+                    <input type="text" value="{{data.Tenkh}}" required readonly>
                   </div>
                   <div class="col-6 mb-3">
                     <h6>Số điện thoại</h6>
-                    <input type="text" value="987 654 321" readonly>
-                    <p class="text-muted">987 654 321</p>
+                    <input type="text" value="{{data.Sodienthoai}}" required readonly>
                   </div>
                 </div>
                 <div class="row pt-1">
                   <div class="col-12 mb-3">
                     <h6>Địa chỉ</h6>
-                    <input type="text" value="123 Main St" readonly>
+                    <input type="text" value="{{data.Diachi}}" required readonly>
                   </div>
                 </div>
                 <div class="row pt-1">
                   <div class="col-12 mb-3">
                     <h6>Ngày sinh</h6>
-                    <input type="text" value="01/01/1990" readonly>
+                    <input type="text" value="{{data.Ngaysinh}}" required readonly>
                   </div>
                 </div>
                 <div class="row pt-1">
                   <div class="col-12 mb-3">
                     <h6>CMND</h6>
-                    <input type="text" value="A1234567" readonly>
+                    <input type="text" value="{{data.CMND}}" required readonly>
                   </div>
                 </div>
 
@@ -70,13 +68,13 @@
 </section>
 
 <script>
-  document.getElementById('editBtn').addEventListener('click', function() {
+  document.getElementById('editBtn').addEventListener('click', function () {
     const inputs = document.querySelectorAll('input[type="text"]');
     inputs.forEach(input => input.removeAttribute('readonly'));
     document.getElementById('saveBtn').removeAttribute('disabled');
   });
 
-  document.getElementById('saveBtn').addEventListener('click', function() {
+  document.getElementById('saveBtn').addEventListener('click', function () {
     const inputs = document.querySelectorAll('input[type="text"]');
     inputs.forEach(input => input.setAttribute('readonly', true));
     this.setAttribute('disabled', true);

@@ -1,0 +1,97 @@
+<div class="container">
+    <main class="content px-5 py-4">
+        <div class="content-fluid">
+            <div class="mb-3">
+                <div>
+                    <h3 class="fw-bold fs-4 mb-3">
+                        Quản lý phiếu yêu cầu
+                    </h3>
+                    {{!-- <div class="col-4">
+                        <select name="MTT" id="mttSelect" style="float: right;">
+                            <option value="1">Đang xử lý</option>
+                            <option value="2">Đã chấp nhận</option>
+                            <option value="3">Đã thanh toán</option>
+                            <option value="4">Đã huỷ</option>
+                        </select>
+                        <form action="/admin/QlyPYC" id="myForm" method="post">
+                            <input hidden type="text" name="selectedValue" id="hiddenInput">
+                        </form>
+                    </div> --}}
+                </div>
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Mã PYC</th>
+                            <th scope="col">Địa chỉ </th>
+                            <th scope="col">Ngày hẹn</th>
+                            <th scope="col">Ghi chú</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data}}
+                        <tr>
+                            <td>{{MaPYC}}</td>
+                            <td>{{Diachi}}</td>
+                            <td>{{NgayHen}}</td>
+                            <td>{{GhiChu}}</td>
+                            <td>{{option MaTT}}</td>
+                            <td>
+                                <a href="/phieuYC/cacl/{{MaPYC}}" class="btn cancel-btn btn-danger" style="display: none;" data-MaTT="{{MaTT}}">Cancel</a>
+                                <a href="/phieuYC/edit/{{MaPYC}}" class="edit-btn btn btn-primary" style="display: none;" data-MaTT="{{MaTT}}">Edit</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <form id="formGetMTT"></form>
+    </main>
+</div>
+
+<!-- Include the modal partial -->
+{{> magPYC/detail }}
+
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        const cancelBtns = document.querySelectorAll('.cancel-btn');
+        const editBtns = document.querySelectorAll('.edit-btn');
+        
+        // Show or hide buttons based on MaTT value
+        cancelBtns.forEach(btn => {
+            if (btn.getAttribute('data-MaTT') == '1') {
+                btn.style.display = "inline-block";
+                btn.nextElementSibling.style.display = "inline-block";
+            }
+        });
+
+        document.getElementById("mttSelect").addEventListener('change', function () {
+            const selectedOption = this.value;
+            const myForm = document.getElementById('formGetMTT');
+            myForm.action = `/admin/QlyPYC/MaTT/${selectedOption}`;
+            myForm.submit();
+        });
+
+        // Edit pop-up phiếu yêu cầu
+        const editBtn = document.getElementById('editBtn');
+        const saveBtn = document.getElementById('saveBtn');
+
+        if (editBtn) {
+            editBtn.addEventListener('click', function () {
+                const inputs = document.querySelectorAll('input[type="text"]');
+                inputs.forEach(input => input.removeAttribute('readonly'));
+                saveBtn.removeAttribute('disabled');
+            });
+        }
+
+        if (saveBtn) {
+            saveBtn.addEventListener('click', function () {
+                const inputs = document.querySelectorAll('input[type="text"]');
+                inputs.forEach(input => input.setAttribute('readonly', true));
+                this.setAttribute('disabled', true);
+            });
+        }
+    });
+</script>

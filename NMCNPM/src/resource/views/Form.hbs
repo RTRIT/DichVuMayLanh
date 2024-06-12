@@ -20,19 +20,18 @@
                     </div>
                     <div class="field">
                         <label for="name">Địa chỉ</label>
-                        <input type="text" class="form_input" name="DiaChi" placeholder="Address">
+                        <input type="text" class="form_input" name="Diachi" placeholder="Address">
                     </div>
                     <div class="field selection">
                         <label for="name">Dịch vụ</label>
                         <select name="services" id="services" size="1">
-                            <option value="Bơm gas máy lạnh">Bơm gas máy lạnh</option>
-                            <option value="Di dời, tháo lắp máy lạnh">Di dời, tháo lắp máy lạnh</option>
-                            <option value="Sửa board máy lạnh Inventer">Sửa board máy lạnh Inventer</option>
-                            <option value="Máy lạnh bị đông đá">Máy lạnh bị đông đá</option>
-                            <option value="Máy lạnh bị chảy nước">Máy lạnh bị chảy nước</option>
-                            <option value="Sửa máy lạnh bị xì gas">Sửa máy lạnh bị xì gas</option>
+                            {{#each data}}
+                                <option value={{MaDV}}>{{TenDV}}</option>
+                            {{/each}}
+                            
                         </select>
                         <div class="" id="selected-services" >
+                            {{!-- selected-item --}}
                         
                         </div>
                     </div>

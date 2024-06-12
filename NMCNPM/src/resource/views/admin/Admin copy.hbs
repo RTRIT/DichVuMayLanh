@@ -1,0 +1,85 @@
+<main class="content px-5 py-4">
+                <div class="content-fluid">
+                    <div class="mb-3">
+                        <h3 class="fw-bold fs-4 mb-3">Admin Dashboard</h3>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <a href="/admin/QlyUser">
+                                    <div class="card card-1 border-0">
+                                        <img src="..." class="card-img-top" alt="">
+                                        <div class="card-body py-4" >
+                                            <h5 class="mb-2 fw-bold">
+                                                Quản lý người dùng
+                                            </h5>        
+                                        </div>
+                                    </div>
+                                </a>  
+                            </div>
+                             <div class="col-12 col-md-6">
+                                <a href="/admin/QlyDV">
+                                    <div class="card card-1 border-0">
+                                        <img src="..." class="card-img-top" alt="">
+                                        <div class="card-body py-4" >
+                                            <h5 class="mb-2 fw-bold">
+                                                Quản lý dịch vụ
+                                            </h5>        
+                                        </div>
+                                    </div>
+                                </a>  
+                            </div>
+                             <div  class="col-12 col-md-6">
+                                <a href="/admin/QlyPYC" id="PYClink">
+                                    <div class="card card-1 border-0">
+                                        <img src="..." class="card-img-top" alt="">
+                                        <div class="card-body py-4" >
+                                            <h5 class="mb-2 fw-bold">
+                                                Quản lý phiếu yêu cầu 
+                                            </h5>        
+                                        </div>
+                                    </div>
+                                </a>  
+                            </div>
+                             <div class="col-12 col-md-6">
+                                <a href="/admin/QlyHD">
+                                    <div class="card card-1 border-0">
+                                        <img src="..." class="card-img-top" alt="">
+                                        <div class="card-body py-4" >
+                                            <h5 class="mb-2 fw-bold">
+                                                Quản lý hoá đơn
+                                            </h5>        
+                                        </div>
+                                    </div>
+                                </a>  
+                            </div>
+                             <div class="col-12 col-md-6">
+                                <a href="/admin/QlyPBH">
+                                    <div class="card card-1 border-0">
+                                        <img src="..." class="card-img-top" alt="">
+                                        <div class="card-body py-4" >
+                                            <h5 class="mb-2 fw-bold">
+                                                Quản lý phiếu bảo hành
+                                            </h5>        
+                                        </div>
+                                    </div>
+                                </a>  
+                            </div>
+                        </div>
+                        
+                    </div>    
+                </div>
+                <form action="/admin/QlyPYC" id="myForm" method="post">
+                    <input hidden type="text" name="MTT" value=1>
+                </form>
+            </main>
+
+
+<script>
+    //Sending a form at first for rendering 
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById('PYClink').addEventListener('click', (event) => {
+            event.preventDefault();
+            console.log('tesitng');
+            document.getElementById('myForm').submit();
+        })
+    })
+</script>

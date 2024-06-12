@@ -5,7 +5,18 @@ class form{
     async show(req,res,next){
         try {
             // const body = req.body;
-            res.render('Form')
+            //Get list dich vu
+            fetch('https://mymusicpupu.000webhostapp.com/server2/DichVu/getListDV.php')
+                .then(response => {
+                    if(!response.ok){
+                        throw new Error('Invalid parameter');
+                    }
+                    return response.json()
+                })
+                .then(data => {
+                    res.render('Form', {data})
+                })
+            // res.render('Form')
         } catch (error) {
             
         }
@@ -37,16 +48,34 @@ class form{
                 "Diachi":req.body.Diachi, 
                 "NgayHen": req.body.NgayHen,
                 "GhiChu": req.body.GhiChu, 
-                "Makh": 123, 
+                "Makh": req.cookies.id_user, 
                 "CTPYC": listServices2
             }
-            // console.log(body)
 
-            // fetch()
+            // console.log((JSON.stringify(body)))
+            // console.log(JSON.stringify(body))
+
+            fetch('https://mymusicpupu.000webhostapp.com/server2/PhieuYC/addPYC.php',{
+                method:'POST',
+                body:JSON.stringify(body),
+                headers: {
+                    'Authorization': `Bearer ${req.cookies.token}`,
+                     'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if(!response.ok){
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // console.log(data)
+                    res.redirect('/Form')
+                })
             
-            res.status(200);
         }catch(error){
-
+            
         }
 
 

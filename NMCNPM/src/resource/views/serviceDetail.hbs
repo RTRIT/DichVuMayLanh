@@ -47,19 +47,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Ống đồng</td>
-                    <td>Toshiba</td>
-                    <td>1</td>
-                    <td>500.000</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Ống đồng</td>
-                    <td>Toshiba</td>
-                    <td>1</td>
-                    <td>500.000</td>
+                    {{#each data2}}
+                        <tr>
+                            <th scope="row">{{this.MaSP}}</th>
+                            <td>{{this.Tensp}}</td>
+                            <td>{{this.Tennhacc}}</td>
+                            <td>{{this.SoLuong}}</td>
+                            <td>{{this.Gia}}</td>
+                        </tr>
+                    {{/each }}
                 </tbody>
             </table>
             

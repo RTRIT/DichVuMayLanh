@@ -1,0 +1,171 @@
+
+.clear{
+    clear: both;
+}
+
+body{
+    background-color: rgb(229, 229, 229);
+}
+
+
+
+.bill-management{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    margin-top: 92px;
+    padding: 20px 20px;
+} 
+
+.bill-management .tabb{
+
+    width: 1256px;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: sticky;
+    top: 0px;
+    margin-left: 0;
+    z-index: 10;
+    margin-bottom: 20px;
+    
+}
+
+.col-3 {
+    text-align: center;
+}
+
+
+
+.bill-management .product{
+    padding: 10px;
+    justify-content: space-between;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.bill-management .col-2{
+    padding: 10px;
+    text-align: center;
+}
+
+.bill-management > .tabb > .col-2:hover{
+    color: black;
+    background-color: #ccc;
+}
+
+.order-header {
+    padding: 5px 0;
+    border-bottom: 1px solid rgb(235, 235, 240);
+
+}
+
+.order-header p{
+    color: #808089;
+}
+
+.order-body{
+    display: inline-block;
+    display: flex;
+    padding: 16px 0;
+    border-bottom: 1px solid rgb(235, 235, 240);
+}
+
+.order-body img{
+    width: 80px;
+    height: 80px;
+}
+
+.order-body{
+    padding: 70px 0px;
+}
+
+.order-body .detail{
+    display: inline-flex;
+    /* max-width: 400px; */
+    
+}
+
+.order-body .last-price{
+    display: inline-flex;
+    justify-content: flex-end;
+
+}
+
+
+.order-body .detail .product-info{
+    margin: 0 12px;
+}
+
+.order-body .detail .store{
+    margin: 4px 0 0;
+}
+
+.order-body .store .lni{
+    margin: 0px 6px 0px 0px;
+}
+
+.order-body .price{
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.order-body .quantity #tel{
+    width: 32px;
+    text-align: center;
+}
+
+.order-footer div{
+    padding: 10px;
+    /* display: flex;
+    justify-content: flex-end; */
+}
+
+
+
+.order-footer .total{
+    display: flex;
+    justify-content: flex-end;
+} 
+
+
+.order-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 12px;
+    width: 100%;
+ 
+
+}
+
+.order-footer .total-money{
+    display: flex;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.order-footer .button-group div{
+    padding: 12px 8px;
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid rgb(11, 116, 229);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: rgb(11, 116, 229);
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 8px;
+    float: right;
+}
+.order-footer .button-group div:hover{
+    
+}
+

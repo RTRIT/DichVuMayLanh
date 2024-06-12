@@ -1,6 +1,7 @@
 const homeRouter = require('./home');
 const usersRouter = require('./user');
 const adminRouter = require('./admin');
+const qlyRouter = require('./QLY');
 
 
 function route(app){
@@ -9,6 +10,8 @@ function route(app){
     // app.use('/search', searchRouter);
     // app.use('/news', newRouter);
     // Trang cho user
+    
+    app.use('/qly', qlyRouter);
     app.use('/admin', adminRouter);
     app.use('/user', usersRouter);
     app.use('/', homeRouter);

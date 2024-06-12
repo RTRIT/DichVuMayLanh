@@ -11,6 +11,15 @@
 	<div class="main">
 		<h1>Login</h1>
 		<h3>Enter your login credentials</h3>
+		{{#if flag}}
+          {{#each errors}}
+		  	<p>{{this}}</p>
+              {{!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <strong>{{this}}</strong> 
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div> --}}
+          {{/each}} 
+      	{{/if}}
 		<form action="/user/login" method="POST">
 			<label for="first">Username:</label>
 			<input type="text"
@@ -31,6 +40,7 @@
 				</button>
 			</div>
 		</form>
+
 		
 		<p>Not registered? 
 			<a href="register"

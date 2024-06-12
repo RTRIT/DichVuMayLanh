@@ -33,5 +33,23 @@ module.exports = {
       }else{
         return "Đã huỷ";
       }
+    },
+    list: function(data){
+      console.log(data)
+    },
+    nameDV: function(maDV, listDV){
+      console.log(listDV)
+      for(let x in listDV){
+        if(listDV[x].MaDV == maDV){
+          return listDV[x].TenDV;
+        }
+      }
+      // for(let x in listDV){
+      //   console.log(x)
+      //   // if(maDV==x.maDV){
+      //   //   return x.TenDV;
+      //   // }
+      // }
     }
-  }
+}
+  

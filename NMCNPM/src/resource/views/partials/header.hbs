@@ -1,19 +1,9 @@
  <div id="header">
         <ul id="nav">
             <li><a href="/">Trang chủ</a></li>
-            <li>
+            <li id="datDV">
                 <a href="/form">Đặt dịch vụ</a>
-                <ul class="subnav">
-                    <li><a href="#">Bơm gas máy lạnh</a></li>
-                    <li><a href="#">Di dời, tháo lắp máy lạnh</a></li>
-                    <li><a href="#">Sửa board máy lạnh Inventer</a></li>
-                    <li><a href="#">Máy lạnh bị đông đá</a></li>
-                    <li><a href="#">Máy lạnh bị chảy nước</a></li>
-                    <li><a href="#">Sửa máy lạnh bị xì gas</a></li>
-                    <li><a href="#">Ống đồng máy lạnh bị đông tuyết</a></li>
-                </ul>
             </li>
-            <li><a href="/admin">Admin</a></li>
             <!-- <li>
                 <a href="">
                     More
@@ -27,61 +17,86 @@
                 
             </li> -->
         </ul>
-        <div id="profile_img">
+        <div id="profile_img" style="display: none;">
             <li>
                 <a href="/profile"><i class="lni lni-user"></i></a>
                
                 <ul class="subnav2">
-                    <li><a href="/HoaDon"><i class="lni lni-list"></i>Hoá Đơn</a></li>
-                    <li><a href="/PhieuDichVu"><i class="lni lni-list"></i>Phiếu Dịch Vụ</a></li>
-                    <li><a href="https://chatgpt.com/c/be88ce86-0678-4f4b-b1ec-3127cfc3cc92"><i class="lni lni-list"></i>Phiếu Bảo Hành</a></li>
-                    <li id="admin"><a href="/Admin"><i class="lni lni-list"></i>Admin</a></li>
-                    <li id="nhanVien"><a href="https://chatgpt.com/c/be88ce86-0678-4f4b-b1ec-3127cfc3cc92"><i class="lni lni-list"></i>Nhân viên</a></li>
+                    <li><a href="/invoice"><i class="lni lni-list"></i>Hoá Đơn</a></li>
+                    <li><a href="/phieuYC"><i class="lni lni-list"></i>Phiếu Dịch Vụ</a></li>
+                    <li><a href="/baoHanh"><i class="lni lni-list"></i>Phiếu Bảo Hành</a></li>
+                    <li><a href="/user/logout"><i class="lni lni-list"></i>Logout</a></li>
                     <li><a href="https://chatgpt.com/c/be88ce86-0678-4f4b-b1ec-3127cfc3cc92"><i class="lni lni-list"></i>Cài Đăt</a></li>
                 </ul>
             </li>
         </div>
-        <div id="cart">
-            <i class="lni lni-cart"></i>
-        </div>
-        <div id="search_box">
-            <i class="lni lni-search"></i>
-        </div>
+        <a href="/user/login">
+            <div id="cart">
+                <i class="fa-solid fa-right-to-bracket"></i>
+             </div>       
+        </a>
+        
         
     </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function(event){
             // Split the cookie string by ';' to get individual cookies
-            var cookies = document.cookie.split(';');
+            var cookies = document.cookie.split(';'); // Trả về một list cặp key-value
             var idRole;
             var idUser;
+            var token;
+
+            //console.log(cookies);
+            
+
             // Iterate through each cookie to find the ones with names 'id_role' and 'id_user'
             cookies.forEach(function(cookie) {
+                console.log(cookie)
                 // Split each cookie into its name and value
                 var parts = cookie.trim().split('=');
-                // Check if the name is 'id_role'
+                //parts[0]:key
+                //parts[1]:value
+
+                // Check if the key is 'id_role'
                 if (parts[0] === 'id_role') {
                     // If found, assign its value to idRole variable
                     idRole = parts[1];
                 }
-                // Check if the name is 'id_user'
+                // Check if the key is 'id_user'
                 if (parts[0] === 'id_user') {
                     // If found, assign its value to idUser variable
                     idUser = parts[1];
                 }
-            });
-            // Display the values of the 'id_role' and 'id_user' cookies
-                var adminLink = document.getElementById('admin'); // Select the 'Admin' link
-                    var nhanVienLink = document.getElementById('nhanVien'); // Select the 'Admin' link
-               if (idRole === '2') {
-                    adminLink.style.display = 'none'; // Hide the 'Admin' link
-                    nhanVienLink.style.display = 'none'; // Hide the 'Admin' link
-                }else if(idRole === '1'){
-                    adminLink.style.display = 'none'; // Hide the 'Admin' link
-                }else{
-                    nhanVienLink.style.display = 'none'; // Hide the 'Admin' link
+                if(parts[0]=== 'token'){
+                    token = parts[1];
                 }
-            })
+            });
+
+
+
+            document.getElementById('datDV').addEventListener('click', function(event) {
+                if (!token) {
+                    event.preventDefault(); // Prevent the default action
+                    alert('No token found. Redirecting to login.');
+                    
+                    window.location.href = '/user/login'; // Redirect to login page
+                }else{
+                    console.log("token have set already!!!")
+                }
+            });
+             if(token){
+                document.getElementById("profile_img").style.display="inline-block";
+                document.getElementById("cart").style.display="none";
+            }
+
+            
+
+         
+           
+
+            // Display the values of the 'id_role' and 'id_user' cookies
+               
+    })
 
 </script>

@@ -1,150 +1,209 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Máy lạnh</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style2.css">
+    {{!-- <link rel="stylesheet" href="/css/style2.css"> --}}
     <link rel="stylesheet" href="/css/HoaDon.css">
+    <link rel="stylesheet" href="/css/HoaDon-popup.css">
 </head>
+
 <body>
     <!-- Header -->
-
-
     <div class="container">
         <div class="bill-management">
             <h3>Quản lý hoá đơn</h3>
-            <div class="tabb ">
-                <div class="tab1 s-tab col-2">Tất cả đơn</div>
-                <div class="tab2 s-tab col-2">Chờ thanh toán</div>
-                <div class="tab3 s-tab col-2">Đang xử lý</div>
-                <div class="tab3 s-tab col-2">Đã Giao</div>
-                <div class="tab4 s-tab col-2">Đã thành công</div>
-                <div class="tab4 s-tab col-2">Đã huỷ</div>
-                
-            </div>
-
             <div class="list-product">
-                <div class="product">
-                    <div class="order-header">
-                        <p>Đơn hàng đã hoàn thành</p>
-                    </div>
-                    <div class="order-body row">
-                        <div class="detail col-8">
-                            <img src="/images/HoaDon_img/product1.jpeg" alt="">
-                            <div class="product-info">
-                                <p class="product-name">Pin Sạc dự phòng Samsung 20.000mAh - 25W (EB-P5300XJEGWW)- Hàng chính hãng</p>
-                                <div class="store">
-                                    <i class="lni lni-shopping-basket"></i>
-                                    <span>SamSung</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="last-price col-4">
-                            <div class="title">873.000 đ</div>
-                        </div>
-                    </div>
-                    <div class="order-footer">
-                        <div class="total">
-                            Tổng tiền: <span>850.000 đ</span>
-                        </div>
-                        <div class="detail-bill">
-                            Xem chi tiết
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="product">
-                    <div class="order-header">
-                        <p>Đơn hàng đã hoàn thành</p>
-                    </div>
-                    <div class="order-body row">
-                        <div class="detail col-8">
-                            <img src="/images/HoaDon_img/product1.jpeg" alt="">
-                            <div class="product-info">
-                                <p class="product-name">Pin Sạc dự phòng Samsung 20.000mAh - 25W (EB-P5300XJEGWW)- Hàng chính hãng</p>
-                                <div class="store">
-                                    <i class="lni lni-shopping-basket"></i>
-                                    <span>SamSung</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="last-price col-4">
-                            <div class="title">873.000 đ</div>
-                        </div>
-                    </div>
-                    <div class="order-footer">
-                        <div class="total">
-                            Tổng tiền: <span>850.000 đ</span>
-                        </div>
-                        <div class="detail-bill">
-                            Xem chi tiết
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="product">
-                    <div class="order-header">
-                        <p>Đơn hàng đã hoàn thành</p>
-                    </div>
-                    <div class="order-body row">
-                        <div class="detail col-8">
-                            <img src="/images/HoaDon_img/product1.jpeg" alt="">
-                            <div class="product-info">
-                                <p class="product-name">Pin Sạc dự phòng Samsung 20.000mAh - 25W (EB-P5300XJEGWW)- Hàng chính hãng</p>
-                                <div class="store">
-                                    <i class="lni lni-shopping-basket"></i>
-                                    <span>SamSung</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="last-price col-4">
-                            <div class="title">873.000 đ</div>
-                        </div>
-                    </div>
-                    <div class="order-footer">
-                        <div class="total">
-                            Tổng tiền: <span>850.000 đ</span>
-                        </div>
-                        <div class="detail-bill">
-                            Xem chi tiết
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-               
+                <div class="infor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="text-bold">Mã Hóa đơn</th>
+                                <th class="text-bold">Ngày lập</th>
+                                <th class="text-bold">Mã phương thức</th>
+                                <th class="text-bold">Mã khách hàng</th>
+                                <th class="text-bold">Mã nhân viên</th>
+                                <th class="text-bold">Xem chi tiết hóa đơn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each dataResult}}
+                            <tr>
+                                {{!-- <form action="">
+                                    <input hidden value={{MaHD}} type="text">
+                                </form> --}}
+                                <td id="{{MaHD}}">{{MaHD}}</td>
+                                <td>{{NgayLap}}</td>
+                                <td>{{MaPP}}</td>
+                                <td>{{Makh}}</td>
+                                <td manv={{Manv}}>{{Manv}}</td>
+                                <td>
+                                    <div madh="{{MaHD}}" manv="{{Manv}}" class="show-invoice-btn detail-bill">
+                                        Xem chi tiết
+                                    </div>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-    
+    <div class="popupwindow">
+        <div class="popup" id="popup-1">
+            <div class="overlay"></div>
+            <div class="content">
+                <span class="close-btn">&times;</span>
+                <h1>Chi tiết hóa đơn</h1>
+                <div class="label-container">
+                    <div>
+                        <span for="Tenkh">Tên khách hàng: <span class="Tenkh"></span></span>
+                    </div>
+                    <div>
+                        <span for="Ngaysinh">Ngày sinh: <span class="Ngaysinh"></span></span>
+                    </div>
+                    <div>
+                        <span for="Diachi">Địa chỉ: <span class="Diachi"></span></span>
+                    </div>
+                    <div>
+                        <span for="Sodienthoai">Số điện thoại: <span class="Sodienthoai"></span></span>
+                    </div>
+                    <div>
+                        <span for="Hoten">Tên nhân viên: <span class="Hoten"></span></span>
+                    </div>
+                    <div>
+                        <span for="NgayLap">Ngày lập: <span class="NgayLap"></span></span>
+                    </div>
+                    <div>
+                        <span for="MaPP">Mã phương pháp: <span class="MaPP"></span></span>
+                    </div>
+                </div>
+                <div class="invoice-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="text-bold">Mã dịch vụ</th>
+                                <th class="text-bold">Tên dịch vụ</th>
+                                <th class="text-bold">Số lượng</th>
+                                <th class="text-bold">Giá</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dữ liệu mẫu</td>
+                                <td>Dữ liệu mẫu</td>
+                                <td>Dữ liệu mẫu</td>
+                                <td>Dữ liệu mẫu</td>
+                            </tr>
 
+                    </table>
+                    <div class="invoice-body-bottom">
+                        <div class="total text-bold">Tổng tiền</div>
+                        <span class="total"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const increaseBtn = document.querySelector("#increase");
             const decreaseBtn = document.querySelector(".decrease");
             const quantityInput = document.querySelector("#tel");
 
-            increaseBtn.addEventListener("click", function() {
+            if (!(increaseBtn && decreaseBtn && quantityInput))
+                return;
+
+            increaseBtn.addEventListener("click", function () {
                 let currentValue = parseInt(quantityInput.value);
                 quantityInput.value = currentValue + 1;
             });
 
-            decreaseBtn.addEventListener("click", function() {
+            decreaseBtn.addEventListener("click", function () {
                 let currentValue = parseInt(quantityInput.value);
                 if (currentValue > 1) {
                     quantityInput.value = currentValue - 1;
                 }
             });
         });
-        
+
+        document.querySelectorAll('.detail-bill').forEach(element => {
+            element.addEventListener('click', async e => {
+                // Tìm dòng cha của phần tử .detail-bill được nhấp
+                // Lấy giá trị maHD từ dòng cha
+                var maHD = element.getAttribute("madh");
+                if (!maHD) {
+                    alert("Missing data");
+                    return;
+                }
+                console.log(maHD)
+                await fetch('/user/invoicedetail', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ maHD })
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to fetch data');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        (function putDataIntoInvoiceDialog() {
+                            //--Rendering data for '.label-container'.
+                            Object.entries(data).forEach(objPair => {
+                                try { document.querySelector('div.popupwindow span.' + objPair[0]).innerText = objPair[1].trim(); }
+                                catch (err) {/*Ignoring data which is not 'String' type.*/ }
+                            });
+
+                            //--Rendering data for '.invoice-body'
+                            document.querySelector('.invoice-body table tbody').innerHTML = data["ChiTietHoaDon"].reduce((rowResult, dataRow) => {
+                                //--Buiding each row from fetched-data.
+                                return rowResult + `
+                                    <tr>${Object.entries(dataRow).reduce((cellResult, objPair) => {
+                                    //--Building each cell from each dataRow.
+                                    return cellResult + `<td class="${objPair[0]}">${objPair[1]}</td>`;
+                                }, "")
+                                    }</tr>
+                                `;
+
+                            }, "");
+
+                            //--Put total into invoice.
+                            document.querySelector('.invoice-body-bottom span.total').innerText = data['TongTien']
+                        })();
+
+                        (function openPopup() {
+                            var popup = document.querySelector('div.popupwindow div.popup');
+                            if (popup) popup.classList.add("active");
+                        })();
+
+                    })
+                    .catch(error => console.log("Error from '/invoice': " + error));
+
+
+                (function togglePopup() {
+                    var popup = document.querySelector('div.popupwindow div.popup');
+                    if (!popup) return;
+
+                    //--Customizing close popUpDialog action.
+                    document.querySelector('div.popupwindow div.popup .close-btn').addEventListener("click", e => {
+                        popup.classList.remove("active");
+                    });
+                })();
+            });
+        });
+
     </script>
-    
+
 
 </body>
 

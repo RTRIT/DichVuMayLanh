@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý dịch vụ</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<main class="content px-5 py-4">
+    <div class="content-fluid">
+        <div class="mb-3">
+            <h3 class="fw-bold fs-4 mb-3">Quản lý dịch vụ</h3>
+            <a href="/qly/createdv" class="btn btn-success">Add</a>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tên dịch vụ</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Mô tả</th>
+                        <th scope="col">Sửa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr>
+                        <th scope="row">{{@index}}</th>
+                        <td>{{TenDV}}</td>
+                        <td>{{Gia}}</td>
+                        <td>{{Mota}}</td>
+                        <td>
+                            <button class="fa-regular fa-pen-to-square btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" data-id="{{MaDV}}" data-tendv="{{TenDV}}" data-gia="{{Gia}}"
+                                data-mota="{{Mota}}" data-url="{{HinhAnh}}"></button> 
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>    
+    </div>
+</main>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sửa dịch vụ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                        <h6>Tên dịch vụ</h6>
+                        <input type="text" id="modalTendv" class="form-control">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <h6>Giá dịch vụ</h6>
+                        <input type="text" id="modalGiadv" class="form-control">
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-12 mb-3">
+                        <h6>Mô tả</h6>
+                        <textarea name="" id="modalMota" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-12 mb-3">
+                        <h6>Ảnh sản phẩm</h6>
+                        <div id="imageChoice">
+                            
+                            <label for="urlOption">URL</label>
+                            <input type="text" id="imageUrl" name="imageUrl" class="form-control">
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="saveBtn" type="button" class="btn btn-success">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+    let selectedServiceId;
+
+    // Use jQuery to handle click event for edit buttons
+    $(document).on("click", ".fa-pen-to-square", function() {
+        const modalTendv = document.getElementById("modalTendv");
+        const modalGiadv = document.getElementById("modalGiadv");
+        const modalMota = document.getElementById("modalMota");
+        const modalUrl  = document.getElementById("imageUrl");
+        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+
+        modalTendv.value = $(this).data("tendv");
+        modalGiadv.value = $(this).data("gia");
+        modalMota.value = $(this).data("mota");
+        modalUrl.value = $(this).data("url")
+
+        // Store the selected service id
+        selectedServiceId = $(this).data("id");
+
+        modal.show();
+    });
+
+    // Reset input fields and selectedServiceId when modal is closed
+    $('#exampleModal').on('hidden.bs.modal', function () {
+        $('#modalTendv').val('');
+        $('#modalGiadv').val('');
+        $('#modalMota').val('');
+        selectedServiceId = null;
+        $('.modal-backdrop').remove(); // Remove the modal-backdrop element
+    });
+
+    $('#saveBtn').click(function() {
+        const Tendv = $('#modalTendv').val();
+        const Giadv = $('#modalGiadv').val();
+        const Mota = $('#modalMota').val();
+        const Url = $('#imageUrl').val();
+        const token = getCookie("token");
+
+        $.ajax({
+            url: 'https://mymusicpupu.000webhostapp.com/server2/DichVu/editDV.php',
+            method: 'POST',
+            data: JSON.stringify({ 
+                MaDV: selectedServiceId, 
+                TenDV: Tendv, 
+                Gia: Giadv, 
+                Mota }),
+            contentType: 'application/json',
+            headers: {
+                'Authorization': `Bearer ${token}` // Thay bằng token của bạn
+            },
+            
+            success: function(response) {
+                alert('Dịch vụ đã được cập nhật thành công!');
+                location.reload();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('Có lỗi xảy ra, vui lòng thử lại sau.');
+            }
+        });
+    });
+});
+
+ function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1, c.length);
+                }
+                if (c.indexOf(nameEQ) === 0) {
+                    return c.substring(nameEQ.length, c.length);
+                }
+            }
+            return null;
+        }
+
+</script>
+</body>
+</html>
