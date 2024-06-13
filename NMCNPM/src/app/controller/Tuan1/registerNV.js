@@ -8,7 +8,7 @@ const path = require('path'); // Import the path module,
 class registerController{
     async show(req,res,next){
         try {
-            res.render('users/register', {layout:false});
+            res.render('Tuan11/registerNV', {layout:false});
           } catch (error) {
             res.status(500).json({ error: 'Failed to fetch data' });
           }
@@ -19,17 +19,20 @@ class registerController{
         let flag = false;
         let errors = [];
         // res.json(req.body);
+
         
         const body1 = {
           "username": req.body.username,
           "password": req.body.password
         };
+        const token = req.cookies.token;
     
-        const response1 = await fetch('https://mymusicpupu.000webhostapp.com/server2/KhanhHang/registerUser.php', {
+        const response1 = await fetch('https://mymusicpupu.000webhostapp.com/server2/NhanVien/registerNV.php', {
           method: "POST",
           body: JSON.stringify(body1),
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
           }
         });
     
@@ -42,20 +45,24 @@ class registerController{
         if (typeof data.message === 'string') {
           flag = true;
           errors.push(data.message);
-          return res.render('users/register', { errors, flag, layout: false });
+          return res.render('Tuan11/registerNV', { errors, flag, layout: false });
         }
     
-        const response2 = await fetch('https://mymusicpupu.000webhostapp.com/server2/KhanhHang/addUser.php', {
+        const response2 = await fetch('https://mymusicpupu.000webhostapp.com/server2/NhanVien/editInfoNv.php', {
           method: "POST",
           body: JSON.stringify({
-            "Makh": data.message,
-            "Tenkh": req.body.first,
+            "Manv": data.message,
+            "Hoten": req.body.first,
             "Ngaysinh": req.body.NgaySinh,
             "Gioitinh": req.body.gender,
-            "Diachi": req.body.address,
+            "DiaChi": req.body.address,
             "Sodienthoai": req.body.mobile,
-            "CMND": req.body.cccd
-          })
+            "Luong": req.body.cccd
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
         });
     
         if (!response2.ok) {
@@ -64,7 +71,7 @@ class registerController{
     
         const data2 = await response2.json();
         console.log("success");
-        res.json(data2);
+        res.redirect('/qly/QlyNV')
       } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Failed to register user' });

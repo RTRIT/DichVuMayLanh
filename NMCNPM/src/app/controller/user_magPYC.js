@@ -139,34 +139,6 @@ class magPYCController{
         }
     }
     
-    async accept(req, res, next) {
-        try {
-            // Accept from với MaPYC
-            console.log(req.params.id)
-            const response = await fetch(`https://mymusicpupu.000webhostapp.com/server2/PhieuYC/chapNhanPYC.php?MaPYC=${req.params.id}`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${req.cookies.token}`
-                }
-            });
-            if (!response.ok) {
-                throw new Error('Không thể accept');
-            }
-
-            const data = await response.json();
-            // console.log(data)
-            if(data.message=="Request form update successfully"){
-                res.render('admin/magPYC/show', {layout:'admin/main'})
-            }
-            // res.render('admin/magPYC/show', {data, layout:'admin/main'})
-            //res.json(data); // Gửi JSON response về client
-        } catch (error) {
-            // Xử lý các lỗi
-            console.error(error);
-            res.status(500).json({ message: 'Lỗi máy chủ nội bộ' });
-        }
-    }
-    
     
     async cancel(req, res, next) {
         try {

@@ -4,6 +4,7 @@ const qly = require('../app/controller/QLY/qly');
 const createdv = require('../app/controller/Tuan2/createdv');
 const editdv = require('../app/controller/Tuan2/editdv');
 const QlyDV = require('../app/controller/QLY/magDV')
+const regNV = require('../app/controller/Tuan1/registerNV')
 
 
 //A Tuan
@@ -18,6 +19,9 @@ router.get('/QlyPBHQL', baoHanh.showListByQL)
 router.get('/Profile', profile.show)
 router.get('/QlyNV', profile.showList)
 router.post('/updateNhanVien', profile.updateNhanVien);
+
+router.get('/register', regNV.show);
+router.post('/register', regNV.register);
 
 
 //Tuan
